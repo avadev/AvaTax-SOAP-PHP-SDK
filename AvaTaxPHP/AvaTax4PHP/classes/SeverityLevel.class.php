@@ -27,7 +27,7 @@ class SeverityLevel extends Enum
 			SeverityLevel::$Success,
 			SeverityLevel::$Warning,
 			SeverityLevel::$Error,
-			SeverityLevel::$Tax
+			SeverityLevel::$Exception
 		);
 	}
 	
