@@ -21,6 +21,7 @@ class TaxType// extends Enum
     public static $Nonrecoverable	= 'Nonrecoverable';
     public static $Fee	= 'Fee';
     public static $Rental	= 'Rental';
+	public static $Excise ='Excise';
 	/*
     public static function Values()
 	{
