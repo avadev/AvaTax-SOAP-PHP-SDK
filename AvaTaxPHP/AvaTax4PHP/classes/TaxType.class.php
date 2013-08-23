@@ -16,7 +16,11 @@ class TaxType// extends Enum
 	public static $Sales	= 'Sales';
 	public static $Use		= 'Use';
 	public static $ConsumerUse	= 'ConsumerUse';
-    public static $Excise ='Excise';
+    public static $Output	= 'Output';
+    public static $Input	= 'Input';
+    public static $Nonrecoverable	= 'Nonrecoverable';
+    public static $Fee	= 'Fee';
+    public static $Rental	= 'Rental';
 	/*
     public static function Values()
 	{
