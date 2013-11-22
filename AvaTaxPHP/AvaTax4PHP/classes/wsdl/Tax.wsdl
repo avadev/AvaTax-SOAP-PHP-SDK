@@ -40,6 +40,7 @@
 					  <s:element minOccurs="1" maxOccurs="1" name="PaymentDate" type="s:date" />
 					  <s:element minOccurs="1" maxOccurs="1" name="ExchangeRate" type="s:decimal" />
 					  <s:element minOccurs="1" maxOccurs="1" name="ExchangeRateEffDate" type="s:date" />
+					  <s:element minOccurs="0" maxOccurs="1" name="PosLaneCode" type="s:string"/>
                       <s:element minOccurs="0" maxOccurs="1" name="BusinessIdentificationNo" type="s:string"/>
 				  </s:sequence>
 			  </s:extension>
@@ -100,7 +101,6 @@
           <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="TaxOverride" type="tns:TaxOverride" />
 		  <s:element minOccurs="0" maxOccurs="1" name="TaxIncluded" type="s:boolean" default="false" />
-          <s:element minOccurs="0" maxOccurs="1" name="PosLaneCode" type="s:string"/>
           <s:element minOccurs="0" maxOccurs="1" name="BusinessIdentificationNo" type="s:string"/>
         </s:sequence>
       </s:complexType>
