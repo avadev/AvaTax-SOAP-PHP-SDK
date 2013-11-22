@@ -49,6 +49,7 @@ class GetTaxRequest
     private $ExchangeRate;		//decimal
     private $BusinessIdentificationNo;     //string
     private $ExchangeRateEffDate;	//date
+	private $PosLaneCode;		//string
     
     
     
@@ -403,6 +404,18 @@ class GetTaxRequest
 
      */
     public function setBusinessIdentificationNo($value){ $this->BusinessIdentificationNo = $value; return $this; }	//string
+	   
+	/**
+	 *Sets POS Lane Code.
+	 *
+	 * @param string $value
+
+	 */
+	public function setPosLaneCode($value)
+	{
+		$this->PosLaneCode = $value;// return $this;
+	}		//string
+    
 	/**
 	 *TaxOverride for the document. 
 	 *
@@ -477,6 +490,7 @@ class GetTaxRequest
 	public function getPaymentDate()  { return $this->PaymentDate; }		//date	
 	public function getExchangeRateEffDate(){ return $this->ExchangeRateEffDate; }	//date
     public function getBusinessIdentificationNo() {return $this->BusinessIdentificationNo; }   //string
+	public function getPosLaneCode() {return $this->PosLaneCode; }   //string
 	public function getTaxOverride(){ return $this->TaxOverride;}
 	
 	public function getReferenceCode()
