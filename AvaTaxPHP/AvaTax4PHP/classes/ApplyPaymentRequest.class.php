@@ -15,6 +15,7 @@ class ApplyPaymentRequest
 {    
     private $CompanyCode;   //string
     private $DocType;       //DocumentType
+	private $DocId;			//string
     private $DocCode;       //string
     private $PaymentDate;   //date
     
@@ -38,7 +39,14 @@ class ApplyPaymentRequest
      */
     public function setDocType($value){ $this->DocType=$value;}       //DocumentType
     
-    /**
+	/**
+     * Sets the docType value for this ApplyPaymentRequest.
+     *
+     * @param string $value
+     */
+    public function setDocId($value){ $this->DocId=$value;}       //string
+    
+	/**
      * Sets the docType value for this ApplyPaymentRequest.
      *
      * @param string $value
@@ -68,6 +76,13 @@ class ApplyPaymentRequest
     public function getDocType(){ return $this->DocType;}       //DocumentType
     
     /**
+     *  Gets the docId value for this ApplyPaymentRequest.
+     *
+     * @return unknown
+     */
+    public function getDocId(){ return $this->DocId;}       //string
+	
+	/**
      *  Gets the docCode value for this ApplyPaymentRequest.
      *
      * @return unknown

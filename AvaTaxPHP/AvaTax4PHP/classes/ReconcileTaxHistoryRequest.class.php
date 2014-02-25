@@ -18,7 +18,7 @@ class ReconcileTaxHistoryRequest// extends TaxRequest
     private $StartDate;   //date
     private $EndDate;   //date
     private $DocStatus;   //int
-    
+    private $LastDocId; //string
     private $DocType; // DocType
   	private $LastDocCode; // string
   	private $PageSize; // int
@@ -68,7 +68,7 @@ class ReconcileTaxHistoryRequest// extends TaxRequest
 	/**
 	 * Set this to retrieve data with a specific DocStatus. 
 	 *
-	 * @param string $value	 
+	 * @param string $value	
 	 */
 	public function setDocStatus($value) { DocStatus::Validate($value); $this->DocStatus = $value; return $this; }
 	
@@ -78,6 +78,9 @@ class ReconcileTaxHistoryRequest// extends TaxRequest
 
   	public function setLastDocCode($value){$this->LastDocCode=$value;} // string
   	public function getLastDocCode(){return $this->LastDocCode;} // string
+	
+	public function setLastDocId($value){$this->LastDocId=$value;} // string
+  	public function getLastDocId(){return $this->LastDocId;} // string
 
   	public function setPageSize($value){$this->PageSize=$value;} // int
   	public function getPageSize(){return $this->PageSize;} // int

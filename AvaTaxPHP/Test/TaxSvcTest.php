@@ -48,7 +48,7 @@
 	            
 		    $this->assertEqual(SeverityLevel::$Success,$getTaxResult->getResultCode());
 		    $this->assertEqual(DocStatus::$Saved,$getTaxResult->getDocStatus());
-		    
+		    $this->assertNotEqual('1',$getTaxResult->getDocId());
 	        $this->assertEqual(1010,$getTaxResult->getTotalAmount());            
 	        $this->assertEqual(95.95,$getTaxResult->getTotalTax());	    	    	     
 	                        
@@ -75,7 +75,8 @@
             global $getTaxResult,$getTaxHistoryRequest,$getTaxRequest,$getTaxHistoryResult,$client;                        
             
             $getTaxHistoryRequest = new GetTaxHistoryRequest();            
-            $getTaxHistoryRequest->setCompanyCode($getTaxRequest->getCompanyCode());                        
+            $getTaxHistoryRequest->setCompanyCode($getTaxRequest->getCompanyCode());
+			$getTaxHistoryRequest->setDocId($getTaxResult->getDocId());
             $getTaxHistoryRequest->setDocCode($getTaxRequest->getDocCode());            
             $getTaxHistoryRequest->setDetailLevel(DetailLevel::$Diagnostic);            
             $getTaxHistoryRequest->setDocType(DocumentType::$SalesInvoice);                        	    
@@ -89,7 +90,7 @@
             $this->assertNotNull($historyTaxRequest);            
             $this->assertEqual(count($getTaxRequest->getLines()), count($historyTaxRequest->getLines()));            	    	    	    
 		    $this->assertEqual(count($getTaxRequest->getAddresses()), count($historyTaxRequest->getAddresses()));            
-	           
+
 		    //compare all properties
 		    $this->CompareHistory($getTaxRequest,$getTaxResult,$getTaxHistoryResult);
             
@@ -102,6 +103,7 @@
 		    $postRequest = new PostTaxRequest();
 	
 		    $postRequest->setCompanyCode($getTaxRequest->getCompanyCode());
+			$postRequest->setDocId($getTaxResult->getDocId());
 		    $postRequest->setDocType($getTaxRequest->getDocType());
 		    $postRequest->setDocCode($getTaxRequest->getDocCode());
 		    $postRequest->setDocDate($getTaxRequest->getDocDate());
@@ -109,7 +111,8 @@
 		    $postRequest->setTotalTax($getTaxResult->getTotalTax());
 	    	
 		    $postResult = $client->postTax($postRequest);
-	    
+
+            $this->assertEqual($getTaxResult->getDocId(),$postResult->getDocId());
 		    $this->assertEqual(SeverityLevel::$Success, $postResult->getResultCode());
 		    		    		    
 		}		
@@ -119,11 +122,12 @@
 		    
 		    $commitRequest = new CommitTaxRequest();
 		    $commitRequest->setCompanyCode($getTaxRequest->getCompanyCode());
+			$commitRequest->setDocId($postResult->getDocId());
 		    $commitRequest->setDocCode($getTaxRequest->getDocCode());
 		    $commitRequest->setDocType($getTaxRequest->getDocType());
 	    
 		    $commitResult = $client->commitTax($commitRequest);
-	    
+            $this->assertEqual($postResult->getDocId(),$commitResult->getDocId());
 		    $this->assertEqual(SeverityLevel::$Success, $commitResult->getResultCode());
 		    
 		}		
@@ -134,12 +138,13 @@
 		    $cancelRequest = new CancelTaxRequest();
 			
 		    $cancelRequest->setCompanyCode($getTaxRequest->getCompanyCode());
+			$cancelRequest->setDocId($commitResult->getDocId());
 		    $cancelRequest->setDocCode($getTaxRequest->getDocCode());
 		    $cancelRequest->setDocType($getTaxRequest->getDocType());
 		    $cancelRequest->setCancelCode(CancelCode::$DocDeleted);
 	    
 		    $cancelResult = $client->cancelTax($cancelRequest);
-	    
+            $this->assertEqual($commitResult->getDocId(),$cancelResult->getDocId());
 		    $this->assertEqual(SeverityLevel::$Success, $cancelResult->getResultCode());
 		    
 		}
@@ -170,6 +175,7 @@
 			
 			$cancelRequest = new CancelTaxRequest();
 		    $cancelRequest->setDocCode($getTaxRequest->getDocCode());
+		//	$cancelRequest->setDocId($getTaxResult->getDocId());
 		    $cancelRequest->setDocType($getTaxRequest->getDocType());
 		    $cancelRequest->setCompanyCode($getTaxRequest->getCompanyCode());
 		    $cancelRequest->setCancelCode(CancelCode::$AdjustmentCancelled);
@@ -255,6 +261,7 @@
 		    $applyPaymentRequest = new ApplyPaymentRequest();
 		    $applyPaymentRequest->setCompanyCode($request->getCompanyCode());
 		    $applyPaymentRequest->setDocCode($request->getDocCode());
+			$applyPaymentRequest->setDocId($result->getDocId());
 		    $dateTime=new DateTime();
 		    $applyPaymentRequest->setPaymentDate(date_format($dateTime,"Y-m-d"));
 		    $applyPaymentRequest->setDocType(DocumentType::$SalesInvoice);
@@ -293,6 +300,7 @@
 	        $reconcileTaxHistoryRequest->setStartDate(date_format($dateTime,"Y-m-d"));
 	        $reconcileTaxHistoryRequest->setEndDate(date_format($dateTime,"Y-m-d"));
 	        $reconcileTaxHistoryRequest->setDocStatus(DocStatus::$Committed);
+			$reconcileTaxHistoryRequest->setLastDocId("0");
 	        $reconcileTaxHistoryRequest->setLastDocCode("0");
 	        $reconcileTaxHistoryRequest->setPageSize(1000);
 	        $reconcileTaxHistoryRequest->setDocType(DocumentType::$SalesInvoice);

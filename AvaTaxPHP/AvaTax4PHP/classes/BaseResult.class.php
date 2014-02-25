@@ -23,6 +23,8 @@ class BaseResult
  * @return string
  */
     public function getTransactionId() { return $this->TransactionId; }
+	
+	public function getDocId() { return $this->DocId; }
 /**
  * Indicates whether operation was successfully completed or not.
  * @return string

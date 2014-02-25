@@ -31,12 +31,17 @@ class CancelTaxResult // extends BaseResult
  * @var array of Message.
  */
     private $Messages = array();
+	
+	private $DocId;
 
 /**
  * Accessor
  * @return string
  */
     public function getTransactionId() { return $this->TransactionId; }
+	
+	public function getDocId() { return $this->DocId; }
+	
 /**
  * Accessor
  * @return string

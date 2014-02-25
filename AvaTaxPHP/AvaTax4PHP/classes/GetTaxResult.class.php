@@ -17,6 +17,7 @@ class GetTaxResult // extends BaseResult
 {
   	  
 	private $DocCode;	//string  
+	private $DocId;		//string
  	private $AdjustmentDescription;      //string  
 	private $DocDate;			//date 
 	private $TaxDate;			//date  	
@@ -40,7 +41,16 @@ class GetTaxResult // extends BaseResult
 	private $TaxSummary;		//ArrayOfTaxDetail	
 	
 	
-    
+    /**
+     * Gets the internal reference code used by the client application. This is used for operations such as Post and GetTaxHistory.       
+     * <p>
+     * See {@link GetTaxRequest#getDocId} on <b>GetTaxRequest</b> for more information about this member.
+     * </p>
+     *
+     * @return string
+     */
+	public function getDocId() {return $this->DocId; }
+	
 	 /**
      * Gets the internal reference code used by the client application. This is used for operations such as Post and GetTaxHistory.       
      * <p>

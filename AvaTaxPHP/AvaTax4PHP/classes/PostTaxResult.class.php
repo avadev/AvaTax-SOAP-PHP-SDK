@@ -23,6 +23,8 @@ class PostTaxResult //extends BaseResult
  * @var string
  */
     private $TransactionId;
+	
+	private $DocId;
 /**
  * @var string must be one of the values defined in {@link SeverityLevel}.
  */
@@ -37,6 +39,8 @@ class PostTaxResult //extends BaseResult
  * @return string
  */
     public function getTransactionId() { return $this->TransactionId; }
+	
+	public function getDocId() { return $this->DocId; }
 /**
  * Accessor
  * @return string

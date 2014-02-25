@@ -48,7 +48,7 @@ class TaxRequest
     * @access public
     * @var string
     */
-    //protected $DocId;	
+    protected $DocId;	
 	
 	/**
     * Sets the client application company reference code.
@@ -87,7 +87,7 @@ class TaxRequest
     * @see GetTaxResult#DocId
     */
 
-    //public function setDocId($value) { $this->DocId = $value; return $this; }
+    public function setDocId($value) { $this->DocId = $value; return $this; }
 
     /**
     * Sets the hashCode value for this GetTaxRequest.
@@ -149,7 +149,7 @@ class TaxRequest
     * @see GetTaxResult#DocId
     */
 
-    //public function getDocId() { return $this->DocId; }
+    public function getDocId() { return $this->DocId; }
 	
 	public function __construct()
 	{
