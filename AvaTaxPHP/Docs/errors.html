@@ -1,0 +1,606 @@
+<html>
+<head>
+<title>phpDocumentor Parser Errors and Warnings</title>
+<link rel="stylesheet" type="text/css" href="media/style.css">
+</head>
+<body>
+
+<table border="0" cellspacing="0" cellpadding="0" height="48" width="100%">
+  <tr>
+    <td class="header_top">Address</td>
+  </tr>
+  <tr><td class="header_line"><img src="media/empty.png" width="1" height="1" border="0" alt=""  /></td></tr>
+  <tr>
+    <td class="header_menu">
+        
+                                                        
+                                                                                                              		  [ <a href="classtrees_Address.html" class="menu">class tree: Address</a> ]
+		  [ <a href="elementindex_Address.html" class="menu">index: Address</a> ]
+		  	    [ <a href="elementindex.html" class="menu">all elements</a> ]
+    </td>
+  </tr>
+  <tr><td class="header_line"><img src="media/empty.png" width="1" height="1" border="0" alt=""  /></td></tr>
+</table>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="200" class="menu">
+      <b>Packages:</b><br />
+              <a href="li_default.html">default</a><br />
+              <a href="li_Address.html">Address</a><br />
+              <a href="li_AvaCert2.html">AvaCert2</a><br />
+              <a href="li_Base.html">Base</a><br />
+              <a href="li_Batch.html">Batch</a><br />
+              <a href="li_Tax.html">Tax</a><br />
+            <br /><br />
+                </td>
+    <td>
+      <table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
+
+<a href="#Post-parsing">Post-parsing</a><br>
+<a href="#AddressServiceSoap.class.php">AddressServiceSoap.class.php</a><br>
+<a href="#AddressType.class.php">AddressType.class.php</a><br>
+<a href="#AdjustTaxRequest.class.php">AdjustTaxRequest.class.php</a><br>
+<a href="#AdjustTaxResult.class.php">AdjustTaxResult.class.php</a><br>
+<a href="#ApplyPaymentRequest.class.php">ApplyPaymentRequest.class.php</a><br>
+<a href="#ApplyPaymentResult.class.php">ApplyPaymentResult.class.php</a><br>
+<a href="#ATConfig.class.php">ATConfig.class.php</a><br>
+<a href="#ATObject.class.php">ATObject.class.php</a><br>
+<a href="#AuditMessage.class.php">AuditMessage.class.php</a><br>
+<a href="#AvalaraSoapClient.class.php">AvalaraSoapClient.class.php</a><br>
+<a href="#AvaTaxBatchSvc.php">AvaTaxBatchSvc.php</a><br>
+<a href="#BaseResult.class.php">BaseResult.class.php</a><br>
+<a href="#Batch.class.php">Batch.class.php</a><br>
+<a href="#BatchDelete.class.php">BatchDelete.class.php</a><br>
+<a href="#BatchDeleteResponse.class.php">BatchDeleteResponse.class.php</a><br>
+<a href="#BatchFetch.class.php">BatchFetch.class.php</a><br>
+<a href="#BatchFetchResponse.class.php">BatchFetchResponse.class.php</a><br>
+<a href="#BatchFetchResult.class.php">BatchFetchResult.class.php</a><br>
+<a href="#BatchFile.class.php">BatchFile.class.php</a><br>
+<a href="#BatchFileDelete.class.php">BatchFileDelete.class.php</a><br>
+<a href="#BatchFileDeleteResponse.class.php">BatchFileDeleteResponse.class.php</a><br>
+<a href="#BatchFileFetch.class.php">BatchFileFetch.class.php</a><br>
+<a href="#BatchFileFetchResponse.class.php">BatchFileFetchResponse.class.php</a><br>
+<a href="#BatchFileFetchResult.class.php">BatchFileFetchResult.class.php</a><br>
+<a href="#BatchFileSave.class.php">BatchFileSave.class.php</a><br>
+<a href="#BatchFileSaveResponse.class.php">BatchFileSaveResponse.class.php</a><br>
+<a href="#BatchFileSaveResult.class.php">BatchFileSaveResult.class.php</a><br>
+<a href="#BatchProcess.class.php">BatchProcess.class.php</a><br>
+<a href="#BatchProcessRequest.class.php">BatchProcessRequest.class.php</a><br>
+<a href="#BatchProcessResponse.class.php">BatchProcessResponse.class.php</a><br>
+<a href="#BatchProcessResult.class.php">BatchProcessResult.class.php</a><br>
+<a href="#BatchSave.class.php">BatchSave.class.php</a><br>
+<a href="#BatchSaveResponse.class.php">BatchSaveResponse.class.php</a><br>
+<a href="#BatchSaveResult.class.php">BatchSaveResult.class.php</a><br>
+<a href="#BatchSvc.class.php">BatchSvc.class.php</a><br>
+<a href="#BoundaryLevel.class.php">BoundaryLevel.class.php</a><br>
+<a href="#CancelCode.class.php">CancelCode.class.php</a><br>
+<a href="#CancelTaxRequest.class.php">CancelTaxRequest.class.php</a><br>
+<a href="#CancelTaxResult.class.php">CancelTaxResult.class.php</a><br>
+<a href="#Certificate.class.php">Certificate.class.php</a><br>
+<a href="#CertificateGetRequest.class.php">CertificateGetRequest.class.php</a><br>
+<a href="#CertificateGetResult.class.php">CertificateGetResult.class.php</a><br>
+<a href="#CertificateImageGetRequest.class.php">CertificateImageGetRequest.class.php</a><br>
+<a href="#CertificateImageGetResult.class.php">CertificateImageGetResult.class.php</a><br>
+<a href="#CertificateJurisdiction.class.php">CertificateJurisdiction.class.php</a><br>
+<a href="#CertificateRequest.class.php">CertificateRequest.class.php</a><br>
+<a href="#CertificateRequestGetRequest.class.php">CertificateRequestGetRequest.class.php</a><br>
+<a href="#CertificateRequestGetResult.class.php">CertificateRequestGetResult.class.php</a><br>
+<a href="#CertificateRequestInitiateRequest.class.php">CertificateRequestInitiateRequest.class.php</a><br>
+<a href="#CertificateRequestInitiateResult.class.php">CertificateRequestInitiateResult.class.php</a><br>
+<a href="#CertificateRequestStage.class.php">CertificateRequestStage.class.php</a><br>
+<a href="#CertificateRequestStatus.class.php">CertificateRequestStatus.class.php</a><br>
+<a href="#CertificateStatus.class.php">CertificateStatus.class.php</a><br>
+<a href="#CertificateUsage.class.php">CertificateUsage.class.php</a><br>
+<a href="#CommitTaxRequest.class.php">CommitTaxRequest.class.php</a><br>
+<a href="#CommitTaxResult.class.php">CommitTaxResult.class.php</a><br>
+<a href="#CommunicationMode.class.php">CommunicationMode.class.php</a><br>
+<a href="#Customer.class.php">Customer.class.php</a><br>
+<a href="#CustomerSaveRequest.class.php">CustomerSaveRequest.class.php</a><br>
+<a href="#CustomerSaveResult.class.php">CustomerSaveResult.class.php</a><br>
+<a href="#DeleteRequest.class.php">DeleteRequest.class.php</a><br>
+<a href="#DeleteResult.class.php">DeleteResult.class.php</a><br>
+<a href="#DetailLevel.class.php">DetailLevel.class.php</a><br>
+<a href="#DocStatus.class.php">DocStatus.class.php</a><br>
+<a href="#DocumentType.class.php">DocumentType.class.php</a><br>
+<a href="#DynamicSoapClient.class.php">DynamicSoapClient.class.php</a><br>
+<a href="#Enum.class.php">Enum.class.php</a><br>
+<a href="#FetchRequest.class.php">FetchRequest.class.php</a><br>
+<a href="#FilterRequest.class.php">FilterRequest.class.php</a><br>
+<a href="#FilterResult.class.php">FilterResult.class.php</a><br>
+<a href="#FormatType.class.php">FormatType.class.php</a><br>
+<a href="#GetTaxHistoryRequest.class.php">GetTaxHistoryRequest.class.php</a><br>
+<a href="#GetTaxHistoryResult.class.php">GetTaxHistoryResult.class.php</a><br>
+<a href="#GetTaxRequest.class.php">GetTaxRequest.class.php</a><br>
+<a href="#GetTaxResult.class.php">GetTaxResult.class.php</a><br>
+<a href="#IsAuthorized.class.php">IsAuthorized.class.php</a><br>
+<a href="#IsAuthorizedResponse.class.php">IsAuthorizedResponse.class.php</a><br>
+<a href="#IsAuthorizedResult.class.php">IsAuthorizedResult.class.php</a><br>
+<a href="#JurisdictionType.class.php">JurisdictionType.class.php</a><br>
+<a href="#Line.class.php">Line.class.php</a><br>
+<a href="#Message.class.php">Message.class.php</a><br>
+<a href="#Ping.class.php">Ping.class.php</a><br>
+<a href="#PingResponse.class.php">PingResponse.class.php</a><br>
+<a href="#PingResult.class.php">PingResult.class.php</a><br>
+<a href="#PostTaxRequest.class.php">PostTaxRequest.class.php</a><br>
+<a href="#PostTaxResult.class.php">PostTaxResult.class.php</a><br>
+<a href="#Profile.class.php">Profile.class.php</a><br>
+<a href="#ReconcileTaxHistoryRequest.class.php">ReconcileTaxHistoryRequest.class.php</a><br>
+<a href="#ReconcileTaxHistoryResult.class.php">ReconcileTaxHistoryResult.class.php</a><br>
+<a href="#RequestType.class.php">RequestType.class.php</a><br>
+<a href="#ReviewStatus.class.php">ReviewStatus.class.php</a><br>
+<a href="#SearchTaxHistoryResult.class.php">SearchTaxHistoryResult.class.php</a><br>
+<a href="#ServiceMode.class.php">ServiceMode.class.php</a><br>
+<a href="#SeverityLevel.class.php">SeverityLevel.class.php</a><br>
+<a href="#TaxDetail.class.php">TaxDetail.class.php</a><br>
+<a href="#TaxLine.class.php">TaxLine.class.php</a><br>
+<a href="#TaxOverride.class.php">TaxOverride.class.php</a><br>
+<a href="#TaxOverrideType.class.php">TaxOverrideType.class.php</a><br>
+<a href="#TaxRequest.class.php">TaxRequest.class.php</a><br>
+<a href="#TaxServiceSoap.class.php">TaxServiceSoap.class.php</a><br>
+<a href="#TaxType.class.php">TaxType.class.php</a><br>
+<a href="#TextCase.class.php">TextCase.class.php</a><br>
+<a href="#ValidAddress.class.php">ValidAddress.class.php</a><br>
+<a href="#ValidateRequest.class.php">ValidateRequest.class.php</a><br>
+<a href="#ValidateResult.class.php">ValidateResult.class.php</a><br>
+<a name="Post-parsing"></a>
+<h1>Post-parsing</h1>
+<h2>Warnings:</h2><br>
+<b>Warning</b> - Class CertificateImageGetResult in file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\AvaCert2Svc\CertificateImageGetResult.class.php has multiple possible parents named BaseResult.  Cannot resolve name conflict,
+ try ignoring a file that contains the conflicting parent class<br>
+<b>Warning</b> - Class CertificateGetResult in file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\AvaCert2Svc\CertificateGetResult.class.php has multiple possible parents named BaseResult.  Cannot resolve name conflict,
+ try ignoring a file that contains the conflicting parent class<br>
+<b>Warning</b> - Class CertificateRequestGetResult in file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\AvaCert2Svc\CertificateRequestGetResult.class.php has multiple possible parents named BaseResult.  Cannot resolve name conflict,
+ try ignoring a file that contains the conflicting parent class<br>
+<b>Warning</b> - Class CertificateRequestInitiateResult in file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\AvaCert2Svc\CertificateRequestInitiateResult.class.php has multiple possible parents named BaseResult.  Cannot resolve name conflict,
+ try ignoring a file that contains the conflicting parent class<br>
+<b>Warning</b> - Class BatchSvc parent SoapClient not found<br>
+<b>Warning</b> - Class CustomerSaveResult in file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\AvaCert2Svc\CustomerSaveResult.class.php has multiple possible parents named BaseResult.  Cannot resolve name conflict,
+ try ignoring a file that contains the conflicting parent class<br>
+<b>Warning</b> - Class DynamicSoapClient parent SoapClient not found<br>
+<b>Warning</b> - Class ApplyPaymentResult in file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\ApplyPaymentResult.class.php has multiple possible parents named BaseResult.  Cannot resolve name conflict,
+ try ignoring a file that contains the conflicting parent class<br>
+<a name="Address.class.php"></a>
+<h1>Address.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 32</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\Address.class.php<br>
+<a name="AddressServiceSoap.class.php"></a>
+<h1>AddressServiceSoap.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 23</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\AddressServiceSoap.class.php<br>
+<a name="AddressType.class.php"></a>
+<h1>AddressType.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 14</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\AddressType.class.php<br>
+<a name="AdjustTaxRequest.class.php"></a>
+<h1>AdjustTaxRequest.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 17</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\AdjustTaxRequest.class.php<br>
+<h2>Errors:</h2><br>
+<b>Error on line 53</b> - Unclosed pre tag in DocBlock, parsing will be incorrect<br>
+<a name="AdjustTaxResult.class.php"></a>
+<h1>AdjustTaxResult.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 15</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\AdjustTaxResult.class.php<br>
+<a name="ApplyPaymentRequest.class.php"></a>
+<h1>ApplyPaymentRequest.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 13</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\ApplyPaymentRequest.class.php<br>
+<a name="ApplyPaymentResult.class.php"></a>
+<h1>ApplyPaymentResult.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 13</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\ApplyPaymentResult.class.php<br>
+<a name="ATConfig.class.php"></a>
+<h1>ATConfig.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 15</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\ATConfig.class.php<br>
+<a name="ATObject.class.php"></a>
+<h1>ATObject.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\ATObject.class.php<br>
+<a name="AuditMessage.class.php"></a>
+<h1>AuditMessage.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\BatchSvc\AuditMessage.class.php<br>
+<a name="AvalaraSoapClient.class.php"></a>
+<h1>AvalaraSoapClient.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 19</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\AvalaraSoapClient.class.php<br>
+<a name="AvaTaxBatchSvc.php"></a>
+<h1>AvaTaxBatchSvc.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 13</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\BatchSvc\AvaTaxBatchSvc.php<br>
+<h2>Errors:</h2><br>
+<b>Error on line 16</b> - __autoload function's DocBlock has @package tag, illegal. ignoring tag "@package Base"<br>
+<a name="BaseResult.class.php"></a>
+<h1>BaseResult.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\BatchSvc\BaseResult.class.php<br>
+<b>Warning on line 14</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\BaseResult.class.php<br>
+<a name="Batch.class.php"></a>
+<h1>Batch.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\BatchSvc\Batch.class.php<br>
+<a name="BatchDelete.class.php"></a>
+<h1>BatchDelete.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\BatchSvc\BatchDelete.class.php<br>
+<a name="BatchDeleteResponse.class.php"></a>
+<h1>BatchDeleteResponse.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\BatchSvc\BatchDeleteResponse.class.php<br>
+<a name="BatchFetch.class.php"></a>
+<h1>BatchFetch.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\BatchSvc\BatchFetch.class.php<br>
+<a name="BatchFetchResponse.class.php"></a>
+<h1>BatchFetchResponse.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\BatchSvc\BatchFetchResponse.class.php<br>
+<a name="BatchFetchResult.class.php"></a>
+<h1>BatchFetchResult.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\BatchSvc\BatchFetchResult.class.php<br>
+<a name="BatchFile.class.php"></a>
+<h1>BatchFile.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 11</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\BatchSvc\BatchFile.class.php<br>
+<a name="BatchFileDelete.class.php"></a>
+<h1>BatchFileDelete.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\BatchSvc\BatchFileDelete.class.php<br>
+<a name="BatchFileDeleteResponse.class.php"></a>
+<h1>BatchFileDeleteResponse.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\BatchSvc\BatchFileDeleteResponse.class.php<br>
+<a name="BatchFileFetch.class.php"></a>
+<h1>BatchFileFetch.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\BatchSvc\BatchFileFetch.class.php<br>
+<a name="BatchFileFetchResponse.class.php"></a>
+<h1>BatchFileFetchResponse.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\BatchSvc\BatchFileFetchResponse.class.php<br>
+<a name="BatchFileFetchResult.class.php"></a>
+<h1>BatchFileFetchResult.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\BatchSvc\BatchFileFetchResult.class.php<br>
+<a name="BatchFileSave.class.php"></a>
+<h1>BatchFileSave.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\BatchSvc\BatchFileSave.class.php<br>
+<a name="BatchFileSaveResponse.class.php"></a>
+<h1>BatchFileSaveResponse.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\BatchSvc\BatchFileSaveResponse.class.php<br>
+<a name="BatchFileSaveResult.class.php"></a>
+<h1>BatchFileSaveResult.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\BatchSvc\BatchFileSaveResult.class.php<br>
+<a name="BatchProcess.class.php"></a>
+<h1>BatchProcess.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\BatchSvc\BatchProcess.class.php<br>
+<a name="BatchProcessRequest.class.php"></a>
+<h1>BatchProcessRequest.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\BatchSvc\BatchProcessRequest.class.php<br>
+<a name="BatchProcessResponse.class.php"></a>
+<h1>BatchProcessResponse.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\BatchSvc\BatchProcessResponse.class.php<br>
+<a name="BatchProcessResult.class.php"></a>
+<h1>BatchProcessResult.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\BatchSvc\BatchProcessResult.class.php<br>
+<a name="BatchSave.class.php"></a>
+<h1>BatchSave.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\BatchSvc\BatchSave.class.php<br>
+<a name="BatchSaveResponse.class.php"></a>
+<h1>BatchSaveResponse.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\BatchSvc\BatchSaveResponse.class.php<br>
+<a name="BatchSaveResult.class.php"></a>
+<h1>BatchSaveResult.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\BatchSvc\BatchSaveResult.class.php<br>
+<a name="BatchSvc.class.php"></a>
+<h1>BatchSvc.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 14</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\BatchSvc\BatchSvc.class.php<br>
+<a name="BoundaryLevel.class.php"></a>
+<h1>BoundaryLevel.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 16</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\BoundaryLevel.class.php<br>
+<a name="CancelCode.class.php"></a>
+<h1>CancelCode.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 14</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\CancelCode.class.php<br>
+<a name="CancelTaxRequest.class.php"></a>
+<h1>CancelTaxRequest.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 22</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\CancelTaxRequest.class.php<br>
+<a name="CancelTaxResult.class.php"></a>
+<h1>CancelTaxResult.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 15</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\CancelTaxResult.class.php<br>
+<a name="Certificate.class.php"></a>
+<h1>Certificate.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\AvaCert2Svc\Certificate.class.php<br>
+<a name="CertificateGetRequest.class.php"></a>
+<h1>CertificateGetRequest.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\AvaCert2Svc\CertificateGetRequest.class.php<br>
+<a name="CertificateGetResult.class.php"></a>
+<h1>CertificateGetResult.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\AvaCert2Svc\CertificateGetResult.class.php<br>
+<a name="CertificateImageGetRequest.class.php"></a>
+<h1>CertificateImageGetRequest.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\AvaCert2Svc\CertificateImageGetRequest.class.php<br>
+<a name="CertificateImageGetResult.class.php"></a>
+<h1>CertificateImageGetResult.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\AvaCert2Svc\CertificateImageGetResult.class.php<br>
+<a name="CertificateJurisdiction.class.php"></a>
+<h1>CertificateJurisdiction.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\AvaCert2Svc\CertificateJurisdiction.class.php<br>
+<a name="CertificateRequest.class.php"></a>
+<h1>CertificateRequest.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\AvaCert2Svc\CertificateRequest.class.php<br>
+<a name="CertificateRequestGetRequest.class.php"></a>
+<h1>CertificateRequestGetRequest.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\AvaCert2Svc\CertificateRequestGetRequest.class.php<br>
+<a name="CertificateRequestGetResult.class.php"></a>
+<h1>CertificateRequestGetResult.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\AvaCert2Svc\CertificateRequestGetResult.class.php<br>
+<a name="CertificateRequestInitiateRequest.class.php"></a>
+<h1>CertificateRequestInitiateRequest.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\AvaCert2Svc\CertificateRequestInitiateRequest.class.php<br>
+<a name="CertificateRequestInitiateResult.class.php"></a>
+<h1>CertificateRequestInitiateResult.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\AvaCert2Svc\CertificateRequestInitiateResult.class.php<br>
+<a name="CertificateRequestStage.class.php"></a>
+<h1>CertificateRequestStage.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\AvaCert2Svc\CertificateRequestStage.class.php<br>
+<a name="CertificateRequestStatus.class.php"></a>
+<h1>CertificateRequestStatus.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\AvaCert2Svc\CertificateRequestStatus.class.php<br>
+<a name="CertificateStatus.class.php"></a>
+<h1>CertificateStatus.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 13</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\AvaCert2Svc\CertificateStatus.class.php<br>
+<a name="CertificateUsage.class.php"></a>
+<h1>CertificateUsage.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 13</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\AvaCert2Svc\CertificateUsage.class.php<br>
+<a name="CommitTaxRequest.class.php"></a>
+<h1>CommitTaxRequest.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 21</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\CommitTaxRequest.class.php<br>
+<a name="CommitTaxResult.class.php"></a>
+<h1>CommitTaxResult.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 14</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\CommitTaxResult.class.php<br>
+<a name="CommunicationMode.class.php"></a>
+<h1>CommunicationMode.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 13</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\AvaCert2Svc\CommunicationMode.class.php<br>
+<a name="Customer.class.php"></a>
+<h1>Customer.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\AvaCert2Svc\Customer.class.php<br>
+<a name="CustomerSaveRequest.class.php"></a>
+<h1>CustomerSaveRequest.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\AvaCert2Svc\CustomerSaveRequest.class.php<br>
+<a name="CustomerSaveResult.class.php"></a>
+<h1>CustomerSaveResult.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\AvaCert2Svc\CustomerSaveResult.class.php<br>
+<a name="DeleteRequest.class.php"></a>
+<h1>DeleteRequest.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\BatchSvc\DeleteRequest.class.php<br>
+<a name="DeleteResult.class.php"></a>
+<h1>DeleteResult.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\BatchSvc\DeleteResult.class.php<br>
+<a name="DetailLevel.class.php"></a>
+<h1>DetailLevel.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 15</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\DetailLevel.class.php<br>
+<a name="DocStatus.class.php"></a>
+<h1>DocStatus.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 15</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\DocStatus.class.php<br>
+<a name="DocumentType.class.php"></a>
+<h1>DocumentType.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 15</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\DocumentType.class.php<br>
+<a name="DynamicSoapClient.class.php"></a>
+<h1>DynamicSoapClient.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 20</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\DynamicSoapClient.class.php<br>
+<a name="Enum.class.php"></a>
+<h1>Enum.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 13</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\Enum.class.php<br>
+<a name="FetchRequest.class.php"></a>
+<h1>FetchRequest.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\BatchSvc\FetchRequest.class.php<br>
+<a name="FilterRequest.class.php"></a>
+<h1>FilterRequest.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\BatchSvc\FilterRequest.class.php<br>
+<a name="FilterResult.class.php"></a>
+<h1>FilterResult.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\BatchSvc\FilterResult.class.php<br>
+<a name="FormatType.class.php"></a>
+<h1>FormatType.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\AvaCert2Svc\FormatType.class.php<br>
+<a name="GetTaxHistoryRequest.class.php"></a>
+<h1>GetTaxHistoryRequest.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 18</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\GetTaxHistoryRequest.class.php<br>
+<a name="GetTaxHistoryResult.class.php"></a>
+<h1>GetTaxHistoryResult.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 15</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\GetTaxHistoryResult.class.php<br>
+<a name="GetTaxRequest.class.php"></a>
+<h1>GetTaxRequest.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 17</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\GetTaxRequest.class.php<br>
+<a name="GetTaxResult.class.php"></a>
+<h1>GetTaxResult.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 15</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\GetTaxResult.class.php<br>
+<a name="IsAuthorized.class.php"></a>
+<h1>IsAuthorized.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\BatchSvc\IsAuthorized.class.php<br>
+<a name="IsAuthorizedResponse.class.php"></a>
+<h1>IsAuthorizedResponse.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\BatchSvc\IsAuthorizedResponse.class.php<br>
+<a name="IsAuthorizedResult.class.php"></a>
+<h1>IsAuthorizedResult.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\BatchSvc\IsAuthorizedResult.class.php<br>
+<b>Warning on line 24</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\IsAuthorizedResult.class.php<br>
+<a name="JurisdictionType.class.php"></a>
+<h1>JurisdictionType.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 17</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\JurisdictionType.class.php<br>
+<a name="Line.class.php"></a>
+<h1>Line.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 15</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\Line.class.php<br>
+<a name="Message.class.php"></a>
+<h1>Message.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\BatchSvc\Message.class.php<br>
+<b>Warning on line 14</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\Message.class.php<br>
+<a name="Ping.class.php"></a>
+<h1>Ping.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\BatchSvc\Ping.class.php<br>
+<a name="PingResponse.class.php"></a>
+<h1>PingResponse.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\BatchSvc\PingResponse.class.php<br>
+<a name="PingResult.class.php"></a>
+<h1>PingResult.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\BatchSvc\PingResult.class.php<br>
+<b>Warning on line 24</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\PingResult.class.php<br>
+<a name="PostTaxRequest.class.php"></a>
+<h1>PostTaxRequest.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 18</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\PostTaxRequest.class.php<br>
+<a name="PostTaxResult.class.php"></a>
+<h1>PostTaxResult.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 15</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\PostTaxResult.class.php<br>
+<a name="Profile.class.php"></a>
+<h1>Profile.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\BatchSvc\Profile.class.php<br>
+<a name="ReconcileTaxHistoryRequest.class.php"></a>
+<h1>ReconcileTaxHistoryRequest.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 14</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\ReconcileTaxHistoryRequest.class.php<br>
+<a name="ReconcileTaxHistoryResult.class.php"></a>
+<h1>ReconcileTaxHistoryResult.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 14</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\ReconcileTaxHistoryResult.class.php<br>
+<a name="RequestType.class.php"></a>
+<h1>RequestType.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 13</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\AvaCert2Svc\RequestType.class.php<br>
+<a name="ReviewStatus.class.php"></a>
+<h1>ReviewStatus.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 13</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\AvaCert2Svc\ReviewStatus.class.php<br>
+<a name="SearchTaxHistoryResult.class.php"></a>
+<h1>SearchTaxHistoryResult.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 16</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\SearchTaxHistoryResult.class.php<br>
+<a name="ServiceMode.class.php"></a>
+<h1>ServiceMode.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 18</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\ServiceMode.class.php<br>
+<a name="SeverityLevel.class.php"></a>
+<h1>SeverityLevel.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\BatchSvc\SeverityLevel.class.php<br>
+<b>Warning on line 15</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\SeverityLevel.class.php<br>
+<a name="TaxDetail.class.php"></a>
+<h1>TaxDetail.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 17</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\TaxDetail.class.php<br>
+<a name="TaxLine.class.php"></a>
+<h1>TaxLine.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 15</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\TaxLine.class.php<br>
+<a name="TaxOverride.class.php"></a>
+<h1>TaxOverride.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 13</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\TaxOverride.class.php<br>
+<a name="TaxOverrideType.class.php"></a>
+<h1>TaxOverrideType.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 12</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\TaxOverrideType.class.php<br>
+<a name="TaxRequest.class.php"></a>
+<h1>TaxRequest.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 16</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\TaxRequest.class.php<br>
+<a name="TaxServiceSoap.class.php"></a>
+<h1>TaxServiceSoap.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 25</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\TaxServiceSoap.class.php<br>
+<a name="TaxType.class.php"></a>
+<h1>TaxType.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 13</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\TaxType.class.php<br>
+<a name="TextCase.class.php"></a>
+<h1>TextCase.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 13</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\TextCase.class.php<br>
+<a name="ValidAddress.class.php"></a>
+<h1>ValidAddress.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 40</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\ValidAddress.class.php<br>
+<a name="ValidateRequest.class.php"></a>
+<h1>ValidateRequest.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 35</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\ValidateRequest.class.php<br>
+<a name="ValidateResult.class.php"></a>
+<h1>ValidateResult.class.php</h1>
+<h2>Warnings:</h2><br>
+<b>Warning on line 32</b> - no @package tag was used in a DocBlock for file C:\Svn\AvaTax\AvaTax\branches\11.2\SDKs\PHP\AvaTaxPHP\AvaTax4PHP\classes\ValidateResult.class.php<br>
+        <div class="credit">
+		    <hr />
+		    Documentation generated on Tue, 05 Apr 2011 09:25:34 +0000 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
+	      </div>
+      </td></tr></table>
+    </td>
+  </tr>
+</table>
+
+</body>
+</html>
