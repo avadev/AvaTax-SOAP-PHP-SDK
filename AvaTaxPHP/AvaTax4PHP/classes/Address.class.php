@@ -27,7 +27,7 @@
  *
  * </pre>
  * @author    Avalara
- * @copyright © 2004 - 2011 Avalara, Inc.  All rights reserved.
+ * @copyright © 2004 - 2016 Avalara, Inc.  All rights reserved.
  * @package   Address
  */
  

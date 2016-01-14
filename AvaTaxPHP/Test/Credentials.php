@@ -30,7 +30,6 @@ new ATConfig('Production', array(
     'account'   => '<Your Production Account Here>',
     'license'   => '<Your Production License Key Here>',
     'trace'     => false) // change to false for production
-    // To enable "Jaas" profile add one more array element : 'name' => 'Jaas' 
 );
 
 /* This is Jaas enabled Developement Configuration called 'JaasDevelopement' 
@@ -46,6 +45,4 @@ new ATConfig('JaasDevelopement', array(
     'name'      => 'Jaas',  // If Jaas is not enabled then remove this element  
     'trace'     => true)    // change to false for production
 );
-
-
 ?>

@@ -14,8 +14,8 @@
  */
 new ATConfig('Development', array(
     'url'       => 'https://development.avalara.net',
-    'account'   => '<your Development Account Number Here>',
-    'license'   => '<your Development License Key Here>',
+    'account'   => '<Your Production Account Here>',
+    'license'   => '<Your Production License Key Here>',
     'trace'     => true) // change to false for production
 );
 
@@ -31,6 +31,4 @@ new ATConfig('Production', array(
     'license'   => '<Your Production License Key Here>',
     'trace'     => false) // change to false for production
 );
-
-
 ?>

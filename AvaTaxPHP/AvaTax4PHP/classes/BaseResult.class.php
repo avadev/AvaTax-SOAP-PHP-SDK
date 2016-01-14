@@ -35,7 +35,11 @@ class BaseResult
  * @return array
  */
     public function getMessages() { return EnsureIsArray($this->Messages->Message); }
-
+/**
+ * Accessor
+ * @return array
+ */
+	public function getValidCompanies() { return EnsureIsArray($this->Companies->Company); }
 }
 
 ?>
