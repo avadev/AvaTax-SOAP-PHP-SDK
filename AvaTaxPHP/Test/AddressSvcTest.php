@@ -48,8 +48,8 @@ class AddressSvcTest extends UnitTestCase
 		$validAddress = $result->getValidAddresses();
 		$validAddress=$validAddress[0];
 		$this->assertEqual("900 WINSLOW WAY E STE 130", $validAddress->getLine1());
-		$this->assertEqual("BAINBRIDGE IS WA 98110-2450", $validAddress->getLine4());
-		$this->assertEqual("5303500000", $validAddress->getFipsCode());
+		$this->assertEqual("BAINBRIDGE ISLAND WA 98110-2450", $validAddress->getLine4());
+		$this->assertEqual("5303503736", $validAddress->getFipsCode());
 		$this->assertEqual("KITSAP", $validAddress->getCounty());
 		$this->assertEqual(true, $result->isTaxable());
 	}
@@ -82,7 +82,7 @@ class AddressSvcTest extends UnitTestCase
 		$this->assertEqual($result->getResultCode(), SeverityLevel::$Error);
 		$message=$result->getMessages();
 		$message=$message[0];
-		$this->assertEqual("PostalCodeError",$message->getName());
+		$this->assertEqual("CityError",$message->getName());
 		
 											
 	}

@@ -15,7 +15,6 @@
           <s:element minOccurs="1" maxOccurs="1" name="TextCase" type="tns:TextCase" />
           <s:element minOccurs="1" maxOccurs="1" name="Coordinates" type="s:boolean" />
           <s:element minOccurs="1" maxOccurs="1" name="Taxability" type="s:boolean" />
-          <s:element minOccurs="1" maxOccurs="1" name="Date" type="s:date" />
         </s:sequence>
       </s:complexType>
       <s:complexType name="BaseAddress">

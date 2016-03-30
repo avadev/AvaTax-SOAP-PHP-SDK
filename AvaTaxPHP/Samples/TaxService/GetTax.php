@@ -55,7 +55,11 @@
     $line1->setRef2("");                //string
     $line1->setExemptionNo("");         //string
     $line1->setCustomerUsageType("");   //string
-	$request->setLines(array ($line1));               //array
+	//$request->setLines(array ($line1));               //array
+	//Changed to object as it is not working in PHP 7
+	$lineObject = new stdClass();			//object
+	$lineObject->Line = array ($line1);
+	$request->setLines($lineObject);
 	
 	try
 	{

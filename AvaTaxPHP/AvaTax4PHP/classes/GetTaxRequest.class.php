@@ -83,7 +83,12 @@ class GetTaxRequest
 		$this->Addresses = array();
 		$this->OriginCode = $this->registerAddress($this->OriginAddress);
 		$this->DestinationCode = $this->registerAddress($this->DestinationAddress);
-		foreach($this->Lines as &$line)
+		if(isset($this->Lines->Line))
+			$allLines = $this->Lines->Line;
+		else
+			$allLines = $this->Lines;
+		
+		foreach($allLines as &$line)
 		{
             $line->registerAddressesIn($this);
 		}

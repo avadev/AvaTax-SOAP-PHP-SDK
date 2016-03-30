@@ -739,7 +739,11 @@ function testGetTaxBusinessIdentificationNo()
 		$line2->setExemptionNo("");         //string
 		$line2->setCustomerUsageType("");   //string
 
-		$request->setLines(array ($line1,$line2));
+		//$request->setLines(array ($line1,$line2));
+		//Changed to object as it is not working in PHP 7
+		$lineObject = new stdClass();
+		$lineObject->Line = array ($line1,$line2);
+		$request->setLines($lineObject);
 
 		$request->setCompanyCode('DEFAULT');         // Your Company Code From the Dashboard
 		$request->setDocType(DocumentType::$SalesInvoice);   	// Only supported types are SalesInvoice or SalesOrder

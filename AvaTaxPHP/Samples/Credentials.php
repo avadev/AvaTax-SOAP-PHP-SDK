@@ -12,7 +12,7 @@
  * $service = new AddressServiceSoap('Development');
  * $service = new TaxServiceSoap('Development');
  */
-new ATConfig('Development', array(
+new ATConfig('Development', array(    
     'url'       => 'https://development.avalara.net',
     'account'   => '<Your Production Account Here>',
     'license'   => '<Your Production License Key Here>',
