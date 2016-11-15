@@ -29,6 +29,9 @@ class Line
     private $Ref2;                //string
     private $ExemptionNo;         //string	//zero tax will result if filled in
     private $CustomerUsageType;   //string
+    private $UnitOfMeasurement;   //string		//Changed for 15.6.0.0
+	private $AddressLocationTypes;	//array			//Changed for 15.6.0.0
+	private $ParameterBagItems;	//array			//Changed for 15.6.0.0
     private $BatchCode;				//string
     
 	private $TaxOverride;	//TaxOverride
@@ -139,6 +142,24 @@ class Line
      */
 	public function setCustomerUsageType($value) { $this->CustomerUsageType = $value; return $this; }   //string
     
+	public function setUnitOfMeasurement($value) { $this->UnitOfMeasurement = $value; return $this; }   //string	Changed for 15.6.0.0
+
+    /**
+	 * Set AddressLocationTypes
+	 *
+	 * @param array $value
+	 
+	 */
+	public function setAddressLocationTypes($value) { $this->AddressLocationTypes = $value; return $this; }		//array		Changed for 15.6.0.0
+	
+    /**
+	 * Set ParameterBagItems
+	 *
+	 * @param array $value
+	 
+	 */
+	public function setParameterBagItems($value) { $this->ParameterBagItems = $value; return $this; }		//array		Changed for 15.6.0.0
+
 	/**
 	 * Enter description here...
 	 *
@@ -263,6 +284,7 @@ class Line
     public function getRef2() { return $this->Ref2; }						//string
     public function getExemptionNo() { return $this->ExemptionNo; }       //string	//zero tax will result if filled in
     public function getCustomerUsageType() { return $this->CustomerUsageType; }   //string
+    public function getUnitOfMeasurement() { return $this->UnitOfMeasurement; }   //string		Changed for 15.6.0.0
     public function getBatchCode() { return $this->BatchCode; }			//string
 	
 	public function getQty() { return $this->Qty; }                 //decimal
@@ -275,8 +297,15 @@ class Line
 	public function getOriginAddress() { return $this->OriginAddress; }			//Address
 	public function getDestinationAddress() { return $this->DestinationAddress; }		//Address
 
+	public function getAddressLocationTypes()
+	{
+		return is_array($this->AddressLocationTypes) ? $this->AddressLocationTypes : EnsureIsArray($this->AddressLocationTypes->AddressLocationType);
+	}					//array		Changed for 15.6.0.0
+	public function getParameterBagItems()
+	{
+		return is_array($this->ParameterBagItems) ? $this->ParameterBagItems : EnsureIsArray($this->ParameterBagItems->ParameterBagItem);
+	}					//array		Changed for 15.6.0.0
 	
-
 /**#@-*/
 
 }

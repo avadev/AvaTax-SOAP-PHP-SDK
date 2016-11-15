@@ -64,9 +64,9 @@ new ATConfig('Default', array(
 	'avacert2WSDL'  => 'file://'.$__wsdldir.'/AvaCert2Svc.wsdl',
     'account'   => '<Your Production Account Here>',
     'license'   => '<Your Production License Key Here>',
-    'adapter'   => 'avatax4php,15.5.1.0',
+    'adapter'   => 'avatax4php,15.6.0.0',
     'client'    => 'AvalaraPHPInterface,1.0',
-	'name'    => '15.5.1.0',
+	'name'    => '15.6.0.0',
     'trace'     => true) // change to false for production
 );
 ?>

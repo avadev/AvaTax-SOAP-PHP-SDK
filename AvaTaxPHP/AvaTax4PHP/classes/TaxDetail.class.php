@@ -43,6 +43,12 @@ class TaxDetail
 	//Task# 25610
 	private $StateAssignedNo;
 	
+	//Added on 14 Oct 2016
+	private $TaxableUnits;		//decimal //Added for 15.6.0.0
+	private $NonTaxableUnits;		//decimal	//Added for 15.6.0.0
+	private $ExemptUnits;		//decimal	//Added for 15.6.0.0
+	private $UnitOfBasis;		//string 		Changed for 15.6.0.0
+	
 	public function getStateAssignedNo()
 	{
 		return $this->StateAssignedNo;
@@ -104,6 +110,10 @@ class TaxDetail
 
 	public function getBase() {return $this->Base; }
 
+	public function getTaxableValue() {return $this->TaxableValue; }		//Changed for 15.6.0.0
+	public function getNonTaxableValue() {return $this->NonTaxableValue; }	//Changed for 15.6.0.0
+	public function getExemptValue() {return $this->ExemptValue; }			//Changed for 15.6.0.0
+	public function getUnitOfBasis() {return $this->UnitOfBasis; }			//Changed for 15.6.0.0
 
   /**
      * Gets the Rate amount.
@@ -184,9 +194,13 @@ class TaxDetail
 	public function getCountry(){ return $this->Country;}	
 	public function getRegion(){ return $this->Region;} 	
 	public function getTaxCalculated(){ return $this->TaxCalculated;}	
-	public function getTaxGroup(){ return $this->TaxGroup;}	
-
-	    
+	
+	//Added for 15.6.0.0
+	public function getTaxableUnits(){ return $this->TaxableUnits;}	
+	public function getNonTaxableUnits(){ return $this->NonTaxableUnits;}	
+	public function getExemptUnits(){ return $this->ExemptUnits;}	
+	
+	public function getTaxGroup(){ return $this->TaxGroup;}	    
 }
 
 	

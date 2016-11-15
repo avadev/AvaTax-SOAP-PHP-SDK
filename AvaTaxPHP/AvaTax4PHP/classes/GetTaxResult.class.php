@@ -39,6 +39,8 @@ class GetTaxResult // extends BaseResult
 	//Added new properties to upgrade to 5.3 interface
 	private $TotalTaxCalculated;	//decimal
 	private $TaxSummary;		//ArrayOfTaxDetail	
+	private $ParameterBagItems;		//array			//Added for 15.6.0.0
+	private $Description;		//string			//Added for 15.6.0.0
 	
 	
     /**
@@ -51,6 +53,8 @@ class GetTaxResult // extends BaseResult
      */
 	public function getDocId() {return $this->DocId; }
 	
+	//Added for 
+	public function getDescription() {return $this->Description; }
 	 /**
      * Gets the internal reference code used by the client application. This is used for operations such as Post and GetTaxHistory.       
      * <p>
@@ -262,10 +266,10 @@ class GetTaxResult // extends BaseResult
 	*/
     public function getMessages() { return EnsureIsArray($this->Messages->Message); }
     
-    
-
-
-
+	public function getParameterBagItems()
+	{
+		return is_array($this->ParameterBagItems) ? $this->ParameterBagItems : EnsureIsArray($this->ParameterBagItems->ParameterBagItem);
+	}					//array		Changed for 15.6.0.0
 
 }
 

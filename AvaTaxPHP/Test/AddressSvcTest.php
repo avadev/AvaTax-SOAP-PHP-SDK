@@ -37,7 +37,7 @@ class AddressSvcTest extends UnitTestCase
 		$address->setLine2("Suite 130");
 		$address->setCity("Bainbridge Is");
 		$address->setRegion("WA");
-		$address->setPostalCode("98110-2450");
+		$address->setPostalCode("98110-2766");
 		$request->setAddress($address);
 		$request->setTextCase(TextCase::$Upper);
 		$request->setTaxability(true);
@@ -48,7 +48,7 @@ class AddressSvcTest extends UnitTestCase
 		$validAddress = $result->getValidAddresses();
 		$validAddress=$validAddress[0];
 		$this->assertEqual("900 WINSLOW WAY E STE 130", $validAddress->getLine1());
-		$this->assertEqual("BAINBRIDGE ISLAND WA 98110-2450", $validAddress->getLine4());
+		$this->assertEqual("BAINBRIDGE ISLAND WA 98110-2766", $validAddress->getLine4());
 		$this->assertEqual("5303503736", $validAddress->getFipsCode());
 		$this->assertEqual("KITSAP", $validAddress->getCounty());
 		$this->assertEqual(true, $result->isTaxable());
@@ -142,7 +142,7 @@ class AddressSvcTest extends UnitTestCase
 			$this->assertEqual("",$validAddress->getLine2());
 			$this->assertEqual(strtoupper($address->getCity()),$validAddress->getCity());
 			$this->assertEqual(strtoupper($address->getRegion()),$validAddress->getRegion());
-			$this->assertEqual($address->getPostalCode()."-2450",$validAddress->getPostalCode());
+			$this->assertEqual($address->getPostalCode()."-2766",$validAddress->getPostalCode());
 			$this->assertEqual("H",$validAddress->getAddressType());
 			$this->assertEqual("C051",$validAddress->getCarrierRoute());
 			
@@ -153,9 +153,9 @@ class AddressSvcTest extends UnitTestCase
 			$this->assertEqual("KITSAP", $validAddress->getCounty());
 			$this->assertEqual(strtoupper($address->getCity())." " 
 				.strtoupper($address->getRegion())." ".$address->getPostalCode()
-				."-2450",$validAddress->getLine4());
+				."-2766",$validAddress->getLine4());
 				
-			$this->assertEqual("981102450307", $validAddress->getPostNet());
+			$this->assertEqual("981102766307", $validAddress->getPostNet());
 			
 			// Added 4.13 changes for the Lat Long
 			// Update to check for ZIP+4 precision

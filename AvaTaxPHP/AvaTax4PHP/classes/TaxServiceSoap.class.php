@@ -53,11 +53,13 @@ class TaxServiceSoap extends AvalaraSoapClient
         'TaxDetail' => 'TaxDetail',
 		'ApplyPaymentRequest'=>'ApplyPaymentRequest',
 		'ApplyPaymentResult'=>'ApplyPaymentResult',
+		'GetParameterBagItemsRequest'=>'GetParameterBagItemsRequest',		//Changed for 15.6.0.0
+		'GetParameterBagItemsResult'=>'GetParameterBagItemsResult',		//Changed for 15.6.0.0
 		'BaseResult'=>'BaseResult',
 		'TaxOverride'=>'TaxOverride'			
 		);
         
-public function __construct($configurationName = 'Default')
+	public function __construct($configurationName = 'Default')
     {
         $config = new ATConfig($configurationName);
         
@@ -296,8 +298,18 @@ public function __construct($configurationName = 'Default')
     public function applyPayment(&$applyPaymentRequest)
     {		
 		return $this->client->ApplyPayment(array('ApplyPaymentRequest' => $applyPaymentRequest))->ApplyPaymentResult;
-    }    		    
+    }
 
+    //Added for Changed for 15.6.0.0
+	public function getParameterBagItems(&$getParameterBagItemsRequest)
+    {
+		return $this->client->GetParameterBagItems(array('GetParameterBagItemsRequest' => $getParameterBagItemsRequest))->GetParameterBagItemsResult;
+    }
+
+    //Added for Changed for 15.6.0.0
+	public function getAllParameterBagItems()
+    {
+		return $this->client->GetAllParameterBagItems()->GetAllParameterBagItemsResult;
+    }
 }
-
 ?>

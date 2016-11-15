@@ -22,6 +22,18 @@ class TaxType// extends Enum
     public static $Fee	= 'Fee';
     public static $Rental	= 'Rental';
 	public static $Excise ='Excise';
+	public static $LodgingTax ='LodgingTax';		//Added for 15.6.0.0
+	public static $Hospitality ='Hospitality';		//Added for 15.6.0.0
+	public static $Preservation ='Preservation';		//Added for 15.6.0.0
+	public static $TransientRoom ='TransientRoom';		//Added for 15.6.0.0
+	public static $Hotel ='Hotel';		//Added for 15.6.0.0
+	public static $CountyAccommodations ='CountyAccommodations';		//Added for 15.6.0.0
+	public static $Accommodations ='Accommodations';		//Added for 15.6.0.0
+	public static $StateAccommodations ='StateAccommodations';		//Added for 15.6.0.0
+	public static $Tourism ='Tourism';		//Added for 15.6.0.0
+	public static $ConventionCenter ='ConventionCenter';		//Added for 15.6.0.0
+	//public static $LodgingFee ='LodgingFee';		//Removed from Taxsvc2
+
 	/*
     public static function Values()
 	{

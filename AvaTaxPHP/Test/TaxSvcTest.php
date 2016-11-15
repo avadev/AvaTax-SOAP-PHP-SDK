@@ -51,7 +51,6 @@ class TaxSvcTest extends UnitTestCase
 		$this->assertEqual(1010,$getTaxResult->getTotalAmount());
 		$this->assertEqual(96.96,$getTaxResult->getTotalTax());
 
-
 		//TaxDetail
 		$this->assertEqual(count($getTaxRequest->getLines()),count($getTaxResult->getTaxLines()),"Tax line count");
 
@@ -59,6 +58,7 @@ class TaxSvcTest extends UnitTestCase
 		$taxLine=$taxLineArray[0];
 
 		$taxDetailArray=$taxLine->getTaxDetails();
+		$this->assertEqual(3, count($taxDetailArray));
 		$taxDetail=$taxDetailArray[0];
 
 		$this->assertEqual(53,$taxDetail->getJurisCode());
@@ -188,9 +188,6 @@ class TaxSvcTest extends UnitTestCase
 		$cancelResult = $client->cancelTax($cancelRequest);
 
 		$this->assertEqual(SeverityLevel::$Success, $cancelResult->getResultCode());
-
-
-
 	}
 	function testTaxOverrideHeader()
 	{
@@ -380,195 +377,200 @@ class TaxSvcTest extends UnitTestCase
 		$this->assertEqual(SeverityLevel::$Success, $taxHistoryResult->getResultCode());
 		$this->compareHistory($request, $result, $taxHistoryResult);
 	}
-function testTaxOverrideType()
-{
-   global $client;
 
-   $dateTime=new DateTime();
-   $docCode= "TaxOverrideLineTypeTest".date_format($dateTime,"dmyGis");
-   $request = $this->CreateTaxRequestForTaxOverrideType($docCode);
-
-   $result = $client->getTax($request);
-   $this->assertEqual(SeverityLevel::$Success, $result->getResultCode());
-   $this->assertEqual($request->getDocType(),$result->getDocType());
-   $this->assertEqual($result->getTotalTaxCalculated(),21.1);
-}
-function testGetTaxWithDocType()
-{
-	global $client;
-
-	$docType = DocumentType::$InventoryTransferInvoice;
-	$docType1 = DocumentType::$InventoryTransferOrder;
-
-	//Testing Document Type InventoryTransferInvoice.
-	$request = $this->CreateTaxRequestDocType($docType);
-
-	$result = $client->getTax($request);
-	$this->assertEqual(SeverityLevel::$Success, $result->getResultCode());
-	$this->assertEqual($result->getTotalAmount(),1010);
-	$this->assertEqual($result->getTotalTax(),96.96);
-
-	//Testing Document Type InventoryTransferOrder.
-	$request = $this->CreateTaxRequestDocType($docType1);
-
-	$result = $client->getTax($request);
-	$this->assertEqual(SeverityLevel::$Success, $result->getResultCode());
-	$this->assertEqual($result->getTotalAmount(),1010);
-	$this->assertEqual($result->getTotalTax(),96.96);
-}
-
-function testGetTaxBusinessIdentificationNo()
-{
-	global $getTaxResult,$getTaxRequest,$client;
-
-	$getTaxRequest=$this->CreateTaxRequestForBINo("HL123");
-
-	$getTaxResult = $client->getTax($getTaxRequest);
-
-	$this->assertEqual(SeverityLevel::$Success,$getTaxResult->getResultCode());
-	$this->assertEqual(1010,$getTaxResult->getTotalAmount());
-	$this->assertEqual(96.96,$getTaxResult->getTotalTax());
-	// Check tax history
-	$taxHistoryRequest = new GetTaxHistoryRequest();
-	$taxHistoryRequest->setCompanyCode($getTaxRequest->getCompanyCode());
-	$taxHistoryRequest->setDocCode($getTaxRequest->getDocCode());
-	$taxHistoryRequest->setDocType($getTaxRequest->getDocType());
-	$taxHistoryRequest->setDetailLevel(DetailLevel::$Tax);
-	$taxHistoryResult = $this->waitForTaxHistory($taxHistoryRequest, $getTaxResult->getTimestamp());
-	$this->assertEqual(SeverityLevel::$Success, $taxHistoryResult->getResultCode());
-	$this->assertEqual($taxHistoryResult->getGetTaxRequest()->getBusinessIdentificationNo(),$getTaxRequest->getBusinessIdentificationNo());
-	for ($i=0;$i< count($getTaxRequest->getLines());$i++)
+	function testTaxOverrideType()
 	{
+	   global $client;
 
-		$requestLine =$getTaxRequest->getLines();
-		$requestLine=$requestLine[$i];
+	   $dateTime=new DateTime();
+	   $docCode= "TaxOverrideLineTypeTest".date_format($dateTime,"dmyGis");
+	   $request = $this->CreateTaxRequestForTaxOverrideType($docCode);
 
-		$historyLine = $taxHistoryResult->getGetTaxRequest()->getLine($requestLine->getNo());
-		$this->assertEqual($requestLine->getNo(), $historyLine->getNo());
-		$this->assertEqual($requestLine->getAmount(), $historyLine->getAmount());
-		$this->assertEqual($requestLine->getItemCode(),$historyLine->getItemCode());
-		$this->assertEqual($requestLine->getBusinessIdentificationNo(),$historyLine->getBusinessIdentificationNo());
+	   $result = $client->getTax($request);
+	   $this->assertEqual(SeverityLevel::$Success, $result->getResultCode());
+	   $this->assertEqual($request->getDocType(),$result->getDocType());
+	   $this->assertEqual($result->getTotalTaxCalculated(),21.1);
 	}
 
-}
-
- function testTaxDetailStateAssignedNo()
-{
-
-	global $client;
-	$getTaxRequest = $this->CreateTaxRequest("testStateAssignedNo");
-	$getTaxRequest->setDetailLevel(DetailLevel::$Diagnostic);
-
-	//Set origin Address
-	$origin = new Address();
-	$origin->setLine1("Avalara");
-	$origin->setLine2("900 winslow way");
-	$origin->setLine3("Suite 100");
-	$origin->setCity("Bainbridge Island");
-	$origin->setRegion("WA");
-	$origin->setPostalCode("98110-1896");
-	$origin->setCountry("USA");
-	$getTaxRequest->setOriginAddress($origin);
-
-	//Set destination address
-	$destination=  new Address();
-	$destination->setLine1("400 Embassy Row NE Ste 580");
-	$destination->setCity("Atlanta");
-	$destination->setRegion("GA");
-	$destination->setPostalCode("30328-7000");
-	$destination->setCountry("USA");
-	$getTaxRequest->setDestinationAddress($destination);
-
-
-	//StateAssignedNo returned by GetTax
-	$getTaxResult=$client->getTax($getTaxRequest);
-	$this->assertEqual(SeverityLevel::$Success,$getTaxResult->getResultCode());
-
-
-	$isStateAssignedNo = false;
-	$resultTaxDetail=$getTaxResult->getTaxSummary();
-	if ( count($resultTaxDetail)  > 0)
+	function testAllParemeterBagItems()
 	{
-		for($i=0;$i<count($resultTaxDetail);$i++)
+	   global $client;
+
+	   $result = $client->getAllParameterBagItems();
+	   $this->assertEqual(SeverityLevel::$Success, $result->getResultCode());
+	}
+
+	function testGetTaxWithDocType()
+	{
+		global $client;
+
+		$docType = DocumentType::$InventoryTransferInvoice;
+		$docType1 = DocumentType::$InventoryTransferOrder;
+
+		//Testing Document Type InventoryTransferInvoice.
+		$request = $this->CreateTaxRequestDocType($docType);
+
+		$result = $client->getTax($request);
+		$this->assertEqual(SeverityLevel::$Success, $result->getResultCode());
+		$this->assertEqual($result->getTotalAmount(),1010);
+		$this->assertEqual($result->getTotalTax(),96.96);
+
+		//Testing Document Type InventoryTransferOrder.
+		$request = $this->CreateTaxRequestDocType($docType1);
+
+		$result = $client->getTax($request);
+		$this->assertEqual(SeverityLevel::$Success, $result->getResultCode());
+		$this->assertEqual($result->getTotalAmount(),1010);
+		$this->assertEqual($result->getTotalTax(),96.96);
+	}
+
+	function testGetTaxBusinessIdentificationNo()
+	{
+		global $getTaxResult,$getTaxRequest,$client;
+
+		$getTaxRequest=$this->CreateTaxRequestForBINo("HL123");
+
+		$getTaxResult = $client->getTax($getTaxRequest);
+
+		$this->assertEqual(SeverityLevel::$Success,$getTaxResult->getResultCode());
+		$this->assertEqual(1010,$getTaxResult->getTotalAmount());
+		$this->assertEqual(96.96,$getTaxResult->getTotalTax());
+		// Check tax history
+		$taxHistoryRequest = new GetTaxHistoryRequest();
+		$taxHistoryRequest->setCompanyCode($getTaxRequest->getCompanyCode());
+		$taxHistoryRequest->setDocCode($getTaxRequest->getDocCode());
+		$taxHistoryRequest->setDocType($getTaxRequest->getDocType());
+		$taxHistoryRequest->setDetailLevel(DetailLevel::$Tax);
+		$taxHistoryResult = $this->waitForTaxHistory($taxHistoryRequest, $getTaxResult->getTimestamp());
+		$this->assertEqual(SeverityLevel::$Success, $taxHistoryResult->getResultCode());
+		$this->assertEqual($taxHistoryResult->getGetTaxRequest()->getBusinessIdentificationNo(),$getTaxRequest->getBusinessIdentificationNo());
+		for ($i=0;$i< count($getTaxRequest->getLines());$i++)
 		{
-			$taxDetail=$resultTaxDetail[$i];
-			 if ($taxDetail->getStateAssignedNo() != null && $taxDetail->getStateAssignedNo() != "")
-			 {
-				 $this->assertEqual("060", $taxDetail->getStateAssignedNo());
-				 $isStateAssignedNo=true;
-			 }
+			$requestLine =$getTaxRequest->getLines();
+			$requestLine=$requestLine[$i];
+
+			$historyLine = $taxHistoryResult->getGetTaxRequest()->getLine($requestLine->getNo());
+			$this->assertEqual($requestLine->getNo(), $historyLine->getNo());
+			$this->assertEqual($requestLine->getAmount(), $historyLine->getAmount());
+			$this->assertEqual($requestLine->getItemCode(),$historyLine->getItemCode());
+			$this->assertEqual($requestLine->getBusinessIdentificationNo(),$historyLine->getBusinessIdentificationNo());
 		}
 	}
-	$this->assertTrue($isStateAssignedNo,"Failed to fetch State Assigned No for the given address");
 
-
-
-	$isStateAssignedNo = false;
-	$taxLines=$getTaxResult->getTaxLines();
-	$taxDetails= $taxLines[0]->getTaxDetails();
-	if (count($taxLines) > 0 && count($taxDetails)> 0)
+	function testTaxDetailStateAssignedNo()
 	{
 
-		for($i=0;$i<count($taxDetails);$i++)
+		global $client;
+		$getTaxRequest = $this->CreateTaxRequest("testStateAssignedNo");
+		$getTaxRequest->setDetailLevel(DetailLevel::$Diagnostic);
+
+		//Set origin Address
+		$origin = new Address();
+		$origin->setLine1("Avalara");
+		$origin->setLine2("900 winslow way");
+		$origin->setLine3("Suite 100");
+		$origin->setCity("Bainbridge Island");
+		$origin->setRegion("WA");
+		$origin->setPostalCode("98110-1896");
+		$origin->setCountry("USA");
+		$getTaxRequest->setOriginAddress($origin);
+
+		//Set destination address
+		$destination=  new Address();
+		$destination->setLine1("400 Embassy Row NE Ste 580");
+		$destination->setCity("Atlanta");
+		$destination->setRegion("GA");
+		$destination->setPostalCode("30328-7000");
+		$destination->setCountry("USA");
+		$getTaxRequest->setDestinationAddress($destination);
+
+		//StateAssignedNo returned by GetTax
+		$getTaxResult=$client->getTax($getTaxRequest);
+		$this->assertEqual(SeverityLevel::$Success,$getTaxResult->getResultCode());
+
+		$isStateAssignedNo = false;
+		$resultTaxDetail=$getTaxResult->getTaxSummary();
+		if ( count($resultTaxDetail)  > 0)
 		{
-			$taxDetail=$taxDetails[$i];
-			if ($taxDetail->getStateAssignedNo() != null && $taxDetail->getStateAssignedNo() != "")
+			for($i=0;$i<count($resultTaxDetail);$i++)
 			{
-				$this->assertEqual("060", $taxDetail->getStateAssignedNo());
-				$isStateAssignedNo = true;
+				$taxDetail=$resultTaxDetail[$i];
+				 if ($taxDetail->getStateAssignedNo() != null && $taxDetail->getStateAssignedNo() != "")
+				 {
+					 $this->assertEqual("060", $taxDetail->getStateAssignedNo());
+					 $isStateAssignedNo=true;
+				 }
 			}
 		}
-	}
-   $this->assertTrue($isStateAssignedNo,"Failed to fetch State Assigned No for the given address");
+		$this->assertTrue($isStateAssignedNo,"Failed to fetch State Assigned No for the given address");
 
-	// 2. StateAssignedNo is returned by GetTaxHistory
-	$historyRequest = new GetTaxHistoryRequest();
-	$historyRequest->setCompanyCode($getTaxRequest->getCompanyCode());
-	$historyRequest->setDocType($getTaxRequest->getDocType());
-	$historyRequest->setDocCode($getTaxRequest->getDocCode());
-	$historyRequest->setDetailLevel( DetailLevel::$Diagnostic);
-
-	$historyResult = $client->getTaxHistory($historyRequest);
-
-	$this->assertEqual(SeverityLevel::$Success, $historyResult->getResultCode());
-	$this->assertNotNull($historyResult->getGetTaxRequest());
-	$this->assertNotNull($historyResult->getGetTaxResult());
-
-	$isStateAssignedNo = false;
-	$historyTaxSummary=$historyResult->getGetTaxResult()->getTaxSummary();
-	if (count($historyTaxSummary) > 0)
-	{
-		$taxDetail;
-		for($i=0;$i<count($historyTaxSummary);$i++)
+		$isStateAssignedNo = false;
+		$taxLines=$getTaxResult->getTaxLines();
+		$taxDetails= $taxLines[0]->getTaxDetails();
+		if (count($taxLines) > 0 && count($taxDetails)> 0)
 		{
-			$taxDetail=$historyTaxSummary[$i];
-			if ($taxDetail->getStateAssignedNo() != null && $taxDetail->getStateAssignedNo()!= "")
+
+			for($i=0;$i<count($taxDetails);$i++)
 			{
-				$this->assertEqual("060", $taxDetail->getStateAssignedNo());
-				$isStateAssignedNo = true;
+				$taxDetail=$taxDetails[$i];
+				if ($taxDetail->getStateAssignedNo() != null && $taxDetail->getStateAssignedNo() != "")
+				{
+					$this->assertEqual("060", $taxDetail->getStateAssignedNo());
+					$isStateAssignedNo = true;
+				}
 			}
 		}
-	}
-	$this->assertTrue($isStateAssignedNo,"Failed to fetch State Assigned No for the given address");
+		$this->assertTrue($isStateAssignedNo,"Failed to fetch State Assigned No for the given address");
 
-	$isStateAssignedNo = false;
-	$taxLines=$historyResult->getGetTaxResult()->getTaxLines();
-	$taxDetails= $taxLines[0]->getTaxDetails();
-	if (count($taxLines) > 0 && count($taxDetails)> 0)
-	{
+		// 2. StateAssignedNo is returned by GetTaxHistory
+		$historyRequest = new GetTaxHistoryRequest();
+		$historyRequest->setCompanyCode($getTaxRequest->getCompanyCode());
+		$historyRequest->setDocType($getTaxRequest->getDocType());
+		$historyRequest->setDocCode($getTaxRequest->getDocCode());
+		$historyRequest->setDetailLevel( DetailLevel::$Diagnostic);
 
-		for($i=0;$i<count($taxDetails);$i++)
+		$historyResult = $client->getTaxHistory($historyRequest);
+
+		$this->assertEqual(SeverityLevel::$Success, $historyResult->getResultCode());
+		$this->assertNotNull($historyResult->getGetTaxRequest());
+		$this->assertNotNull($historyResult->getGetTaxResult());
+
+		$isStateAssignedNo = false;
+		$historyTaxSummary=$historyResult->getGetTaxResult()->getTaxSummary();
+		if (count($historyTaxSummary) > 0)
 		{
-			$taxDetail=$taxDetails[$i];
-			if ($taxDetail->getStateAssignedNo() != null && $taxDetail->getStateAssignedNo() != "")
+			$taxDetail;
+			for($i=0;$i<count($historyTaxSummary);$i++)
 			{
-				$this->assertEqual("060", $taxDetail->getStateAssignedNo());
-				$isStateAssignedNo = true;
+				$taxDetail=$historyTaxSummary[$i];
+				if ($taxDetail->getStateAssignedNo() != null && $taxDetail->getStateAssignedNo()!= "")
+				{
+					$this->assertEqual("060", $taxDetail->getStateAssignedNo());
+					$isStateAssignedNo = true;
+				}
 			}
 		}
+		$this->assertTrue($isStateAssignedNo,"Failed to fetch State Assigned No for the given address");
+
+		$isStateAssignedNo = false;
+		$taxLines=$historyResult->getGetTaxResult()->getTaxLines();
+		$taxDetails= $taxLines[0]->getTaxDetails();
+		if (count($taxLines) > 0 && count($taxDetails)> 0)
+		{
+
+			for($i=0;$i<count($taxDetails);$i++)
+			{
+				$taxDetail=$taxDetails[$i];
+				if ($taxDetail->getStateAssignedNo() != null && $taxDetail->getStateAssignedNo() != "")
+				{
+					$this->assertEqual("060", $taxDetail->getStateAssignedNo());
+					$isStateAssignedNo = true;
+				}
+			}
+		}
+		$this->assertTrue($isStateAssignedNo,"Failed to fetch State Assigned No for the given address");
 	}
-   $this->assertTrue($isStateAssignedNo,"Failed to fetch State Assigned No for the given address");
-}
+
 	private function CompareHistory($getTaxRequest,$getTaxResult,$getTaxHistoryResult)
 	{
 		//global $getTaxResult,$getTaxHistoryRequest,$getTaxRequest,$getTaxHistoryResult;
@@ -681,12 +683,10 @@ function testGetTaxBusinessIdentificationNo()
 				$this->assertEqual($resultDetail->getTax(), $historyDetail->getTax());
 			}
 		}
-
 	}
+
 	private function CreateTaxRequest($docCode)
 	{
-
-
 		$request=new GetTaxRequest();
 
 		//Set origin Address
@@ -723,7 +723,12 @@ function testGetTaxBusinessIdentificationNo()
 		$line1->setRef2("");                //string
 		$line1->setExemptionNo("");         //string
 		$line1->setCustomerUsageType("");   //string
+		$line1->setUnitOfMeasurement("10");   //string
 
+		$pb1 = array();
+		$pb1['Name'] = "LC";
+		$pb1['Value'] = "100";
+		$line1->setParameterBagItems($pb1);   //string
 
 		$line2 = new Line();
 		$line2->setNo ("2");                  //string  // line Number of invoice
@@ -739,11 +744,24 @@ function testGetTaxBusinessIdentificationNo()
 		$line2->setExemptionNo("");         //string
 		$line2->setCustomerUsageType("");   //string
 
+		$pb2 = array();
+		$pb2['Name'] = "PB2";
+		$pb2['Value'] = "400";
+		$line2->setParameterBagItems($pb2);   //string
+		
 		//$request->setLines(array ($line1,$line2));
 		//Changed to object as it is not working in PHP 7
 		$lineObject = new stdClass();
 		$lineObject->Line = array ($line1,$line2);
 		$request->setLines($lineObject);
+
+		/*	//Set ParameterBagItem at header level
+		$pb1 = new ParameterBagItem();
+		$pb1->setName("Item1");
+		$pb1->setValue("200");
+		$pbObject = new stdClass();
+		$pbObject->ParameterBagItem = array ($pb1);
+		$request->setParameterBagItems($pbObject);*/
 
 		$request->setCompanyCode('DEFAULT');         // Your Company Code From the Dashboard
 		$request->setDocType(DocumentType::$SalesInvoice);   	// Only supported types are SalesInvoice or SalesOrder
@@ -763,15 +781,41 @@ function testGetTaxBusinessIdentificationNo()
 		$request->setPurchaseOrderNo("");     //string Optional
 		$request->setExemptionNo("");         //string   if not using ECMS which keys on customer code
 
+		//Changed for 15.6.0.0
+		$addressLocationTypeShipFrom = new AddressLocationType();		//Changed for 15.6.0.0
+		$addressLocationTypeShipFrom->setAddressCode("0");
+		$addressLocationTypeShipFrom->setLocationTypeCode(LocationType::$ShipFrom);
+
+		$addressLocationTypeShipTo = new AddressLocationType();		//Changed for 15.6.0.0
+		$addressLocationTypeShipTo->setAddressCode("1");
+		$addressLocationTypeShipTo->setLocationTypeCode(LocationType::$ShipTo);
+
+		$addressLocationTypeObject = new stdClass();
+		$addressLocationTypeObject->AddressLocationType = array ($addressLocationTypeShipFrom,$addressLocationTypeShipTo);
+
+		$request->setAddressLocationTypes($addressLocationTypeObject);
+
+		$request->setIsSellerImporterOfRecord(true);					//Changed for 15.6.0.0
+		$request->setBRBuyerType(BRBuyerTypeEnum::$BUS);					//Changed for 15.6.0.0
+		$request->setBRBuyer_IsExemptOrCannotWH_IRRF("BRBuyer_IsExemptOrCannotWH_IRRF");					//Changed for 15.6.0.0
+		$request->setBRBuyer_IsExemptOrCannotWH_PISRF("BRBuyer_IsExemptOrCannotWH_PISRF");					//Changed for 15.6.0.0
+		$request->setBRBuyer_IsExemptOrCannotWH_COFINSRF("BRBuyer_IsExemptOrCannotWH_COFINSRF");					//Changed for 15.6.0.0
+		$request->setBRBuyer_IsExemptOrCannotWH_CSLLRF("BRBuyer_IsExemptOrCannotWH_CSLLRF");					//Changed for 15.6.0.0
+		$request->setBRBuyer_IsExempt_PIS("BRBuyer_IsExempt_PIS");					//Changed for 15.6.0.0
+		$request->setBRBuyer_IsExempt_COFINS("BRBuyer_IsExempt_COFINS");					//Changed for 15.6.0.0
+		$request->setBRBuyer_IsExempt_CSLL("BRBuyer_IsExempt_CSLL");					//Changed for 15.6.0.0
+		$request->setDescription("Description");					//Changed for 15.6.0.0
+		$request->setEmail("Email");							//Changed for 15.6.0.0
+
+
 		$request->setDetailLevel(DetailLevel::$Diagnostic);         //Summary or Document or Line or Tax or Diagnostic
 
 		$request->setReferenceCode("Reference");       //string Optional
 		$request->setLocationCode("");        //string Optional - aka outlet id for tax forms
 
-
-
 		return $request;
 	}
+
 	private function CreateTaxRequestForTaxOverride($docCode)
 	{
 		$request = new GetTaxRequest();
@@ -821,6 +865,7 @@ function testGetTaxBusinessIdentificationNo()
 
 		return $request;
 	}
+
 	// Function for Test Tax Override Type
 	private function CreateTaxRequestForTaxOverrideType($docCode){
 		$request = new GetTaxRequest();
@@ -916,54 +961,54 @@ function testGetTaxBusinessIdentificationNo()
 		$request->setSalespersonCode("");             // string Optional
 		$request->setDetailLevel(DetailLevel::$Diagnostic);         //Summary or Document or Line or Tax or Diagnostic
 
+		return $request;
+	}
 
-	return $request;
-}
+	private function CreateTaxRequestForBINo($bino)
+	{
+		$request=new GetTaxRequest();
 
-private function CreateTaxRequestForBINo($bino)
-{
-	$request=new GetTaxRequest();
+		//Set origin Address
+		$origin = new Address();
+		$origin->setLine1("Avalara");
+		$origin->setLine2("900 winslow way");
+		$origin->setLine3("Suite 100");
+		$origin->setCity("Bainbridge Island");
+		$origin->setRegion("WA");
+		$origin->setPostalCode("98110-1896");
+		$origin->setCountry("USA");
+		$request->setOriginAddress($origin);
 
-	//Set origin Address
-	$origin = new Address();
-	$origin->setLine1("Avalara");
-	$origin->setLine2("900 winslow way");
-	$origin->setLine3("Suite 100");
-	$origin->setCity("Bainbridge Island");
-	$origin->setRegion("WA");
-	$origin->setPostalCode("98110-1896");
-	$origin->setCountry("USA");
-	$request->setOriginAddress($origin);
+		//Set destination address
+		$destination=  new Address();
+		$destination->setLine1("3130 Elliott");
+		$destination->setCity("Seattle");
+		$destination->setRegion("WA");
+		$destination->setPostalCode("98121");
+		$destination->setCountry("USA");
+		$request->setDestinationAddress($destination);
 
-	//Set destination address
-	$destination=  new Address();
-	$destination->setLine1("3130 Elliott");
-	$destination->setCity("Seattle");
-	$destination->setRegion("WA");
-	$destination->setPostalCode("98121");
-	$destination->setCountry("USA");
-	$request->setDestinationAddress($destination);
+		//Set line
+		$line = new Line();
+		$line->setNo ("1");                  //string  // line Number of invoice
+		$line->setBusinessIdentificationNo("LL123");
+		$line->setItemCode("Item123");            //string
+		$line->setQty(1.0);                 //decimal
+		$line->setAmount(1010.00);
 
-	//Set line
-	$line = new Line();
-	$line->setNo ("1");                  //string  // line Number of invoice
-	$line->setBusinessIdentificationNo("LL123");
-	$line->setItemCode("Item123");            //string
-	$line->setQty(1.0);                 //decimal
-	$line->setAmount(1010.00);
+		$request->setLines(array ($line));
 
-	$request->setLines(array ($line));
-
-	$request->setCompanyCode('DEFAULT');         // Your Company Code From the Dashboard
-	$request->setDocCode("DocTypeTest");
-	$request->setBusinessIdentificationNo($bino);
-	$request->setDocDate(date_format(new DateTime(),"Y-m-d"));
-	$request->setCustomerCode("TaxSvcTest");        //string Required
-	$request->setSalespersonCode("");             // string Optional
-	$request->setDetailLevel(DetailLevel::$Tax);         //Summary or Document or Line or Tax or Diagnostic
+		$request->setCompanyCode('DEFAULT');         // Your Company Code From the Dashboard
+		$request->setDocCode("DocTypeTest");
+		$request->setBusinessIdentificationNo($bino);
+		$request->setDocDate(date_format(new DateTime(),"Y-m-d"));
+		$request->setCustomerCode("TaxSvcTest");        //string Required
+		$request->setSalespersonCode("");             // string Optional
+		$request->setDetailLevel(DetailLevel::$Tax);         //Summary or Document or Line or Tax or Diagnostic
 
 		return $request;
 	}
+
 	private function waitForTaxHistory($getTaxHistoryRequest)
 	{
 		global $client;

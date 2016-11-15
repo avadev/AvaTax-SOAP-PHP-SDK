@@ -20,6 +20,7 @@ class GetTaxRequest
 	private $CompanyCode; // string
 	private $DocCode;
 	private $DocType;
+	private $BRBuyerType;			//Changed for 15.6.0.0
     private $DocDate;				//date
     private $SalespersonCode;		//string
     private $CustomerCode;			//string
@@ -31,6 +32,8 @@ class GetTaxRequest
     private $DestinationCode;		//string
     private $Addresses;				//array
     private $Lines;					//array
+	private $AddressLocationTypes;	//array			//Changed for 15.6.0.0
+	private $ParameterBagItems;		//array			//Changed for 15.6.0.0
     private $DetailLevel;			//Summary or Document or Line or Tax or Diagnostic
     private $ReferenceCode; 		// string        
     private $LocationCode;			//string
@@ -38,6 +41,14 @@ class GetTaxRequest
     private $BatchCode;				//string
 	private $OriginAddress;			//address
 	private $DestinationAddress;		//address
+    private $BRBuyer_IsExempt_COFINS=false;			//boolean	//Changed for 15.6.0.0
+    private $BRBuyer_IsExempt_CSLL=false;			//boolean	//Changed for 15.6.0.0
+    private $BRBuyer_IsExempt_PIS=false;			//boolean	//Changed for 15.6.0.0
+    private $BRBuyer_IsExemptOrCannotWH_COFINSRF=false;			//boolean	//Changed for 15.6.0.0
+    private $BRBuyer_IsExemptOrCannotWH_CSLLRF=false;			//boolean	//Changed for 15.6.0.0
+    private $BRBuyer_IsExemptOrCannotWH_IRRF=false;			//boolean	//Changed for 15.6.0.0
+    private $BRBuyer_IsExemptOrCannotWH_PISRF=false;			//boolean	//Changed for 15.6.0.0
+    private $IsSellerImporterOfRecord=false;			//boolean	//Changed for 15.6.0.0
     
     
     //@author: Swetal
@@ -50,18 +61,27 @@ class GetTaxRequest
     private $BusinessIdentificationNo;     //string
     private $ExchangeRateEffDate;	//date
 	private $PosLaneCode;		//string
-    
-    
-    
+	private $Description;		//string	Changed for 15.6.0.0
+	private $Email;		//string	Changed for 15.6.0.0
+     
 
 	public function __construct()
 	{
 	
 		$this->DocDate = date("Y-m-d");
 		$this->Commit=false;
+		$this->BRBuyer_IsExempt_COFINS=false;	//Changed for 15.6.0.0
+		$this->BRBuyer_IsExempt_CSLL=false;		//Changed for 15.6.0.0
+		$this->BRBuyer_IsExempt_PIS=false;		//Changed for 15.6.0.0
+		$this->BRBuyer_IsExemptOrCannotWH_COFINSRF=false;	//Changed for 15.6.0.0
+		$this->BRBuyer_IsExemptOrCannotWH_CSLLRF=false;		//Changed for 15.6.0.0
+		$this->BRBuyer_IsExemptOrCannotWH_IRRF=false;		//Changed for 15.6.0.0
+		$this->BRBuyer_IsExemptOrCannotWH_PISRF=false;		//Changed for 15.6.0.0
+		$this->IsSellerImporterOfRecord=false;				//Changed for 15.6.0.0
 		$this->HashCode=0;
 		$this->Discount=0.0;
 		$this->DocType=DocumentType::$SalesInvoice;
+		$this->BRBuyerType=BRBuyerTypeEnum::$IND;			//Changed for 15.6.0.0
 		$this->DetailLevel=DetailLevel::$Document;
 		$this->DocCode = date("Y-m-d-H-i-s.u");
 		$this->CustomerCode='CustomerCodeString';
@@ -218,7 +238,8 @@ class GetTaxRequest
 	 * 
 	 */
 	public function setDocType($value) { DocumentType::Validate($value); $this->DocType = $value; return $this; }				//SalesOrder or SalesInvoice or PurchaseOrder or PurchaseInvoice or ReturnOrder or ReturnInvoice
-	
+
+	public function setBRBuyerType($value) { BRBuyerTypeEnum::Validate($value); $this->BRBuyerType = $value; return $this; } 	//Changed for 15.6.0.0
 	/**
 	 * Specifies the level of detail to return. 
 	 *
@@ -322,6 +343,22 @@ class GetTaxRequest
 	 */
 	public function setAddresses($value) { $this->Addresses = $value; return $this; }		//array
     
+    /**
+	 * Set AddressLocationTypes
+	 *
+	 * @param array $value
+	 
+	 */
+	public function setAddressLocationTypes($value) { $this->AddressLocationTypes = $value; return $this; }		//array		Changed for 15.6.0.0
+
+    /**
+	 * Set ParameterBagItems
+	 *
+	 * @param array $value
+	 
+	 */
+	public function setParameterBagItems($value) { $this->ParameterBagItems = $value; return $this; }		//array		Changed for 15.6.0.0
+
 	/**
 	 * Set tax lines
 	 *
@@ -339,6 +376,71 @@ class GetTaxRequest
 	 *
 	 */
 	public function setCommit($value) { $this->Commit = $value; return $this; }						//boolean
+
+    /**
+	 * This has been defaulted to False ; 
+	 *
+	 * @param boolean $value
+	 *
+	 */
+	public function setBRBuyer_IsExempt_COFINS($value) { $this->BRBuyer_IsExempt_COFINS = $value; return $this; }			//boolean	Changed for 15.6.0.0
+
+    /**
+	 * This has been defaulted to False ; 
+	 *
+	 * @param boolean $value
+	 *
+	 */
+	public function setIsSellerImporterOfRecord($value) { $this->IsSellerImporterOfRecord = $value; return $this; }				//boolean	Changed for 15.6.0.0
+
+    /**
+	 * This has been defaulted to False ; 
+	 *
+	 * @param boolean $value
+	 *
+	 */
+	public function setBRBuyer_IsExempt_CSLL($value) { $this->BRBuyer_IsExempt_CSLL = $value; return $this; }				//boolean	Changed for 15.6.0.0
+
+    /**
+	 * This has been defaulted to False ; 
+	 *
+	 * @param boolean $value
+	 *
+	 */
+	public function setBRBuyer_IsExempt_PIS($value) { $this->BRBuyer_IsExempt_PIS = $value; return $this; }					//boolean	Changed for 15.6.0.0
+
+    /**
+	 * This has been defaulted to False ; 
+	 *
+	 * @param boolean $value
+	 *
+	 */
+	public function setBRBuyer_IsExemptOrCannotWH_COFINSRF($value) { $this->BRBuyer_IsExemptOrCannotWH_COFINSRF = $value; return $this; } //boolean	Changed for 15.6.0.0
+
+    /**
+	 * This has been defaulted to False ; 
+	 *
+	 * @param boolean $value
+	 *
+	 */
+	public function setBRBuyer_IsExemptOrCannotWH_CSLLRF($value) { $this->BRBuyer_IsExemptOrCannotWH_CSLLRF = $value; return $this; }	//boolean	Changed for 15.6.0.0
+
+    /**
+	 * This has been defaulted to False ; 
+	 *
+	 * @param boolean $value
+	 *
+	 */
+	public function setBRBuyer_IsExemptOrCannotWH_IRRF($value) { $this->BRBuyer_IsExemptOrCannotWH_IRRF = $value; return $this; }	//boolean	Changed for 15.6.0.0
+
+    /**
+	 * This has been defaulted to False ; 
+	 *
+	 * @param boolean $value
+	 *
+	 */
+	public function setBRBuyer_IsExemptOrCannotWH_PISRF($value) { $this->BRBuyer_IsExemptOrCannotWH_PISRF = $value; return $this; }		//boolean	Changed for 15.6.0.0
+
     //public function setIsTotalTaxOverriden($value) { $this->IsTotalTaxOverriden = ($value ? true : false); return $this; }	//boolean
 	
 	/**
@@ -421,6 +523,16 @@ class GetTaxRequest
 		$this->PosLaneCode = $value;// return $this;
 	}		//string
     
+	public function setDescription($value)
+	{
+		$this->Description = $value;// return $this;
+	}		//string		Changed for 15.6.0.0
+
+	public function setEmail($value)
+	{
+		$this->Email = $value;// return $this;
+	}		//string		Changed for 15.6.0.0
+
 	/**
 	 *TaxOverride for the document. 
 	 *
@@ -442,6 +554,7 @@ class GetTaxRequest
   	
 	public function getCompanyCode() { return $this->CompanyCode;}			//string
     public function getDocType() { return $this->DocType;}				//SalesOrder or SalesInvoice or PurchaseOrder or PurchaseInvoice or ReturnOrder or ReturnInvoice
+	public function getBRBuyerType() { return $this->BRBuyerType;}				//Changed for 15.6.0.0
     public function getDocCode() { return $this->DocCode;}				//string   invoice number
     public function getDocDate() { return $this->DocDate;}				//date
     public function salespersonCode() { return $this->SalespersonCode;}		//string
@@ -463,14 +576,16 @@ class GetTaxRequest
 		
 		//@swetal
 		//Changed from $this->Addresses to $this->Addresses->BaseAddress
-		return is_array($this->Addresses) ? $this->Addresses : EnsureIsArray($this->Addresses->BaseAddress);
-		
-		
-		
-		
-		
-		
+		return is_array($this->Addresses) ? $this->Addresses : EnsureIsArray($this->Addresses->BaseAddress);		
 	}				//array
+	public function getAddressLocationTypes()
+	{
+		return is_array($this->AddressLocationTypes) ? $this->AddressLocationTypes : EnsureIsArray($this->AddressLocationTypes->AddressLocationType);
+	}					//array		Changed for 15.6.0.0
+	public function getParameterBagItems()
+	{
+		return is_array($this->ParameterBagItems) ? $this->ParameterBagItems : EnsureIsArray($this->ParameterBagItems->ParameterBagItem);
+	}					//array		Changed for 15.6.0.0
     public function getLines()
     {
 	return is_array($this->Lines) ? $this->Lines : EnsureIsArray($this->Lines->Line);
@@ -482,6 +597,15 @@ class GetTaxRequest
     public function getBatchCode() { return $this->BatchCode;}				//string
 	
     public function getCommit() { return $this->Commit;}			//boolean
+
+    public function getBRBuyer_IsExempt_COFINS() { return $this->BRBuyer_IsExempt_COFINS;}			//boolean	Changed for 15.6.0.0
+    public function getBRBuyer_IsExempt_CSLL() { return $this->BRBuyer_IsExempt_CSLL;}			//boolean		Changed for 15.6.0.0
+    public function getBRBuyer_IsExempt_PIS() { return $this->BRBuyer_IsExempt_PIS;}			//boolean		Changed for 15.6.0.0
+    public function getBRBuyer_IsExemptOrCannotWH_COFINSRF() { return $this->BRBuyer_IsExemptOrCannotWH_COFINSRF;}			//boolean	Changed for 15.6.0.0
+    public function getBRBuyer_IsExemptOrCannotWH_CSLLRF() { return $this->BRBuyer_IsExemptOrCannotWH_CSLLRF;}			//boolean	Changed for 15.6.0.0
+    public function getBRBuyer_IsExemptOrCannotWH_IRRF() { return $this->BRBuyer_IsExemptOrCannotWH_IRRF;}			//boolean	Changed for 15.6.0.0
+    public function getBRBuyer_IsExemptOrCannotWH_PISRF() { return $this->BRBuyer_IsExemptOrCannotWH_PISRF;}			//boolean	Changed for 15.6.0.0
+    public function getIsSellerImporterOfRecord() { return $this->IsSellerImporterOfRecord;}			//boolean	Changed for 15.6.0.0
     //public function getIsTotalTaxOverriden() { return $this->IsTotalTaxOverriden;}	//boolean
 	
 	
@@ -496,6 +620,8 @@ class GetTaxRequest
 	public function getExchangeRateEffDate(){ return $this->ExchangeRateEffDate; }	//date
     public function getBusinessIdentificationNo() {return $this->BusinessIdentificationNo; }   //string
 	public function getPosLaneCode() {return $this->PosLaneCode; }   //string
+	public function getDescription() {return $this->Description; }   //string	Changed for 15.6.0.0
+	public function getEmail() {return $this->Email; }   //string	Changed for 15.6.0.0
 	public function getTaxOverride(){ return $this->TaxOverride;}
 	
 	public function getReferenceCode()
